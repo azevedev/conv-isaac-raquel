@@ -1,26 +1,136 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view class="view" v-slot=" { Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  <div id="nav">
+    <div class="links">
+      <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
+      <router-link to="/confirm" v-if="currentRouteName !== 'Confirm'">Confirmar Presença</router-link>
+      <router-link to="/local" v-if="currentRouteName !== 'Local'">Local do Evento</router-link>
+      <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Lista de Presentes</router-link>
+    </div>
+  </div>
+  
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'Contact',
+    data() {
+        return {
+            phoneNumber: '123-123-123'
+        }
+    },
+    computed: {
+    currentRouteName() {
+        return this.$route.name;
+    }
+}
 }
 </script>
 
+
 <style>
+
+@font-face {
+    font-family: "Solidaritha";
+    src: local("Solidaritha"),   url("./assets/fonts/SolidarithaScript.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Petit";
+    src: local("Petit"),   url("./assets/fonts/PetitScript.ttf") format("truetype");
+  }
+
+  .solidaritha{
+    font-family: "Solidaritha";
+    font-size: 40px; 
+    line-height: 60px;
+    letter-spacing: 6px;
+  }
+  ffont{
+    font-family: "Petit";
+  }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #BF9742;
+}
+
+body {
+  display: flex;
+}
+
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+#nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20vh;
+  flex-direction: column;
+  padding-top: 40px;
+  z-index: 9999;
+}
+
+.links{
+  padding: 12px;
+  display: flex;
+}
+
+#nav a {
+  border: solid #2c3e50 1px;
+  padding: 14px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #2c3e50;
+  background: white;
+  font-size: 10px;
+  margin: 0px 8px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.view{
+  max-width: 500px;
+  height: 80vh;
+  min-height: 80vh;
+  max-height: 80vh;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active{
+  transition: opacity 0.3s ease-out;
+}
+
+
+
+  
 </style>
