@@ -5,7 +5,7 @@
         </h1>
         <div id="content">
                 <label for="convidado_principal">Convidado Principal</label>
-                <input name="convidado_principal" placeholder="Nome Completo" class="input"/>
+                <input name="convidado_principal" id="convidado_principal" placeholder="Nome Completo" class="input"/>
                 
                 
               
@@ -13,7 +13,7 @@
                 <ul>
                 <li v-for="(input, index) in inputs" :key="index" style="position: relative;">
                     <label type="text" >Convidado {{ index + 1 }}</label> <br>
-                    <input type="text" class="input" name="convidados[]" placeholder="Nome completo" v-model="input.two">
+                    <input type="text" class="input" name="convidados" placeholder="Nome completo">
                     
                     <span @click="deleteRow(index)" class="material-symbols-sharp rmv">
                         delete_forever
@@ -46,6 +46,12 @@
 </template>
 
 <script>
+import {sendList} from '../main';
+import getAllLists from '../main';
+// Import the method.
+import { useLoading } from 'vue3-loading-overlay';
+// Import stylesheet
+import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 export default {
     name: 'Confirm',
     data() {
@@ -54,15 +60,43 @@ export default {
             inputs: [],
         }
     },
+    setup() {
+        let loader = useLoading();
+        const showLoader = () => {
+          loader.show({
+            container: null,
+            fullPage: true,
+            canCancel: false,
+            color: "#FFF",
+            loader: 'dots',
+            opacity: 1,
+            backgroundColor: "#2c3e50",
+            zIndex: 99999999,
+            lockScroll: true,
+          });
+        };
+
+        const hideLoader = () => {
+            loader.hide()
+        }
+          
+        return {
+          showLoader,
+          hideLoader
+        }
+    },
     methods: {
     handleSubmit(e) {
       e.preventDefault();
+      
       if(this.total > 5) return;
+      
       this.total++;
 
-      this.inputs.push({one: 'Convidado '+this.total, two: ''})
+      this.inputs.push({name: 'Convidado '+this.total})
 
     },
+    
     deleteRow(i) {
       
       this.total--;
@@ -70,8 +104,45 @@ export default {
        this.inputs.splice(i,1)
 
     },
-    sendData(){
+    receiveData(){
+        getAllLists()
+
+    },
+    async sendData(){
+        this.showLoader();
+        const principal = document.getElementById('convidado_principal');
+        const convidados = document.getElementsByName('convidados');
         console.log("sending...");
+        console.log(principal);
+        console.log(convidados);
+        if(principal.value.trim() == ""){ this.hideLoader(); return;}
+        const principalJson = {
+            'nome': principal.value,
+            'principal': true,
+        };
+        console.log(principalJson)
+
+        const ID = await sendList(principalJson);
+        const convidadosJson = []
+        for await (const document of convidados){
+            if(document.value.trim() == "") continue;
+            const json = {
+                "nome": document.value,
+                "convidado_por": ID,
+                "principal": false,
+            }
+            convidadosJson.push(document.value);
+            await sendList(json);
+        }
+        console.log('done!');
+        this.total = 0,
+        this.inputs = [],
+        this.hideLoader();
+        
+        this.$router.push({
+            name: 'Confirmed',
+            params: { principal: principal.value, convidados: convidadosJson }
+        });
     }
   }
 }

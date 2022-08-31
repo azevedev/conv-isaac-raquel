@@ -4,18 +4,40 @@
         Queridos Amigos e Familiares
         </h1>
         <div id="content">
-            <h2>Contact us</h2>
-            <p>Contact us by phone on {{ phoneNumber }}, or via our address at 123 Fake Street, New York City.</p>
-        
-        
+            <br>
+            <h2 style="font-weight: normal;">Abaixo estão os locais dos eventos:</h2>
+            <br><br>
+            <div style="display: flex; justify-content: space-around;">
+                <div style="width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px;">
+                       <div class="round">
+                            <span class="material-symbols-outlined" style="font-size: 42px; color: rgb(44, 62, 80);">
+                                church
+                            </span>
 
-        <iframe
-            width="80%"
-            frameborder="0" style="border:0"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBqt5PhIc_mRH0oCeZiG1yAxYz3Yy24X2I&q=Eiffel+Tower,Paris+France"
-            allowfullscreen>
-        </iframe>
+                        </div>
+                    </a>
+
+                    <p style="text-align: center; font-size: 12px;">Celebração religiosa <br>
+                      Horário: 18:00 <br>
+                        Local: Igreja matriz nossa senhora da Conceição</p>
+                </div>
+
+                <div style="width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <a href="https://maps.app.goo.gl/AKfbRupxtfKUBRLU7" style="margin-bottom: 8px;">
+                        <div class="round">
+                            <span class="material-symbols-outlined" style="font-size: 42px; color: rgb(44, 62, 80);">
+                                nightlife
+                            </span>
+                        </div>
+                    </a>
+                    <p style="text-align: center; font-size: 12px;">Recepção <br>
+Horário: Após a celebração religiosa  <br>
+Local: Clube boêmia pub</p> 
+                </div>
+
+            </div>
+            
         </div>
         <footer>
     </footer></div>
@@ -32,6 +54,21 @@ export default {
 }
 </script>
 <style scoped="">
+.round{
+    width: 85px;
+    height: 85px;
+    background: rgb(233, 218, 186);
+    padding: 20px;
+    border-radius: 50%;
+    border: 1px solid rgb(191, 151, 66);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+}
+
+.round:hover{
+    background: rgb(191, 151, 66);;
+}
 .content {
     padding: 18px;
     padding-top: 30px;
@@ -43,5 +80,13 @@ h2 {
 .c-s{
     font-size: 30px;
     letter-spacing: 3px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
 </style>

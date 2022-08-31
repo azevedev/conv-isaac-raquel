@@ -1,13 +1,15 @@
 <template>
     <router-view class="view" v-slot=" { Component }">
       <transition name="fade" mode="out-in">
+        <Suspense>
         <component :is="Component" />
+        </Suspense>
       </transition>
     </router-view>
   <div id="nav">
     <div class="links">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
-      <router-link to="/confirm" v-if="currentRouteName !== 'Confirm'">Confirmar Presença</router-link>
+      <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Confirmar Presença</router-link>
       <router-link to="/local" v-if="currentRouteName !== 'Local'">Local do Evento</router-link>
       <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Lista de Presentes</router-link>
     </div>
@@ -16,7 +18,7 @@
 </template>
 <script>
 export default {
-    name: 'Contact',
+    name: 'App',
     data() {
         return {
             phoneNumber: '123-123-123'

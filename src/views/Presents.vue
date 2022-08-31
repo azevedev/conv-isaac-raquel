@@ -46,7 +46,7 @@ margin-bottom: 18px;">
 
 <script>
 export default {
-    name: 'Contact',
+    name: 'Presents',
     data() {
         return {
             phoneNumber: '123-123-123'

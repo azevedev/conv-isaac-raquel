@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import Presents from '../views/Presents.vue'
 import Local from '../views/Local.vue'
 import Confirm from '../views/Confirm.vue'
+import Confirmed from '../views/Confirmed.vue'
+import List from '../views/List.vue'
 
 const routes = [{
         path: '/',
@@ -23,6 +25,16 @@ const routes = [{
         path: '/confirm',
         name: 'Confirm',
         component: Confirm
+    },
+    {
+        path: '/lista',
+        name: 'List',
+        component: List
+    },
+    {
+        path: '/confirmed',
+        name: 'Confirmed',
+        component: Confirmed
     }
 ]
 
