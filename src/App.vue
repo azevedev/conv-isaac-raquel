@@ -37,13 +37,13 @@ export default {
 
       // <meta property="og:image" itemprop="image" content="https://i.imgur.com/ic60fTr.jpg">
       // adding og:image
-      let ogImage = document.createElement('META')
-      ogImage.setAttribute('property','og:image')
-      ogImage.setAttribute('itemprop','image')
-      ogImage.setAttribute('content','https://i.imgur.com/ic60fTr.jpg')
+      // let ogImage = document.createElement('META')
+      // ogImage.setAttribute('property','og:image')
+      // ogImage.setAttribute('itemprop','image')
+      // ogImage.setAttribute('content','https://i.imgur.com/ic60fTr.jpg')
 
 
-      document.querySelector(`head`).appendChild(ogImage)
+      // document.querySelector(`head`).appendChild(ogImage)
     }
 }
 </script>
