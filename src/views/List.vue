@@ -4,6 +4,7 @@
 margin-bottom: 18px;">
         Presenças Já Confirmadas
         </h1>
+        <p>Total: {{ total_amount }}</p>
         <div class="cnv">
             <ul class="ul-prin">
                 <li v-for="(cnvPr, indexPr) in convidadosPr" :key="indexPr" class="li-prin">
@@ -35,8 +36,11 @@ export default {
     },
     async setup() {
         const convidadosPr = await getAllPr()
+        let total_amount = 0;
         for await (const cnv of convidadosPr){
+            total_amount++;
             cnv.convidados = await getAllCnv(cnv.id)
+            total_amount += cnv.convidados.length
         }
 
         
@@ -44,6 +48,7 @@ export default {
         
         return {
             convidadosPr,
+            total_amount,
         }
     },
     mounted() {
