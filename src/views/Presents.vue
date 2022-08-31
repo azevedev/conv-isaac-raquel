@@ -4,13 +4,22 @@
 margin-bottom: 18px;">
         Queridos Amigos e Familiares
         </h1>
-        <p style="padding: 20px 30px;">Optamos por não fazer lista de presentes, a sua presença é nosso maior presente! 
+        <p class="showIn" style="animation-delay: 0.1s; padding: 20px 30px;">Optamos por não fazer lista de presentes, a sua presença é nosso maior presente! 
             Mas caso queira nos presentear, sugerimos uma quantia através de depósito:</p>
         <div class="info">
-            <div style="width: 100%; display: flex; justify-content: center;">
-                <div class="card" style="animation-delay: 0.1s;">
+            <div style="width: 100%; display: flex; justify-content: center; flex-direction: column;">
+                <div class="card" style="margin-bottom: 18px; animation-delay: 0.2s;">
                     <p><b>PIX:</b> (89) 9 9994-2260 </p><br>
                     <p>Renata Ellen Carvalho dos Santos</p>
+                </div>
+                <div class="card" style="flex-direction: row; justify-content: space-between; padding: 10px 36px; animation-delay: 0.3s;">
+                    <p>🥰 R$ 100,00</p>
+                    <p>❤️ R$ 200,00</p>
+                    <p>😍 R$ 300,00</p>
+                   
+                </div>
+                <div class="card" style="flex-direction: row; animation-delay: 0.4s;">
+                 <p>🥰❤️😍 R$ +300,00</p>
                 </div>
             </div>
         </div>
@@ -38,14 +47,15 @@ p{
     flex-direction: column;
     
 }
+.showIn{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn forwards 1s;
+}
 .card {
-    width: 80%;
-    text-align: start;
-    padding: 16px;
-    height: 165px;
-    margin: 12px;
+    width: 100%;
+    text-align: center;
     border: none;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,7 +66,7 @@ p{
 
 .c-s{
     font-size: 30px;
-    letter-spacing: 3px;
+    letter-spacing: 0px;
 }
 
 @keyframes fadeIn {

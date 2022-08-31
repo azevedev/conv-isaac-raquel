@@ -91,10 +91,6 @@
         <p>Horas</p>
       </div> -->
     </div>
-    <div style="position:absolute; left: 0; text-align:center; bottom: 120px; z-index: 9999; font-size: 10px; width: 100%;">
-      <p style="z-index: 9999;">Por favor confirmar presença até dia 26 de outubro de 2022.</p>
-      <p style="z-index: 9999;">As senhas só serão entregues após a confirmação da presença.</p>
-    </div>
   </div>
 </template>
 

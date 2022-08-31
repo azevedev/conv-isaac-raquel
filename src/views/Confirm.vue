@@ -175,14 +175,13 @@ color: brown;
 
 
 .c-s{
-    font-size: 40px
+    font-size: 36px
 }
 .content {
-    padding: 2rem;
+    padding: 18px;
     overflow: scroll;
 }
 #content{
-    margin-top: 12px;
     display: flex;
     flex-direction: column;
     align-items: start;

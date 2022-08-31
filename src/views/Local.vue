@@ -78,7 +78,7 @@ h2 {
 
 .c-s{
     font-size: 30px;
-    letter-spacing: 3px;
+    letter-spacing: 0px;
 }
 
 .material-symbols-outlined {

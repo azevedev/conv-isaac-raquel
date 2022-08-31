@@ -11,6 +11,10 @@
       </transition>
     </router-view>
   <div id="nav">
+    <div style="text-align:center; z-index: 9999; font-size: 10px; width: 100%;">
+      <p style="z-index: 9999;">Por favor confirmar presença até dia 26 de outubro de 2022.</p>
+      <p style="z-index: 9999;">As senhas só serão entregues após a confirmação da presença.</p>
+    </div>
     <div class="links">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
       <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Confirmar Presença</router-link>
@@ -65,7 +69,7 @@ export default {
     font-family: "Solidaritha";
     font-size: 40px; 
     line-height: 60px;
-    letter-spacing: 6px;
+    letter-spacing: 0px;
   }
   ffont{
     font-family: "Petit";
@@ -101,9 +105,8 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 20vh;
   flex-direction: column;
-  padding-top: 40px;
+  padding-top: 25px;
   z-index: 9999;
 }
 
@@ -113,11 +116,12 @@ body {
 }
 
 #nav a {
-  border: solid #2c3e50 1px;
+  border: solid #194B32 1px;
   padding: 14px 12px;
   text-decoration: none;
   font-weight: bold;
-  color: #2c3e50;
+  color: #194B32;
+  font-weight: bold;
   background: white;
   font-size: 10px;
   margin: 0px 8px;
@@ -134,9 +138,9 @@ body {
 
 .view{
   max-width: 500px;
-  height: 80vh;
-  min-height: 80vh;
-  max-height: 80vh;
+  height: 75vh;
+  min-height: 75vh;
+  max-height: 75vh;
 }
 
 .fade-enter-from,
