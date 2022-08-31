@@ -13,11 +13,11 @@ margin-bottom: 18px;">
                     <p>❤️ R$ 200,00</p>
                     <p>😍 R$ 300,00</p>
                 </div>
-                <div class="card" style="margin-bottom: 22px; flex-direction: row; animation-delay: 0.3s;">
+                <div class="card" style="margin-bottom: 50px; flex-direction: row; animation-delay: 0.3s;">
                  <p>🥰❤️😍 R$ +300,00</p>
                 </div>
 
-                <div class="card" style="animation-delay: 0.4s;">
+                <div class="card" style="animation-delay: 0.4s; font-size: 22px;">
                     <p><b>PIX:</b> (89) 9 9994-2260 </p>
                     <p>Renata Ellen Carvalho dos Santos</p>
                 </div>
