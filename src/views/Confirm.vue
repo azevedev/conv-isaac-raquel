@@ -26,7 +26,7 @@
                             add_circle
                         </span>
                     </button>
-                    <p>Adicionar membro</p>
+                    <p>Adicionar convidado</p>
             </div>
         </div>
 
