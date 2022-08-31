@@ -13,7 +13,7 @@
                 <ul>
                 <li v-for="(input, index) in inputs" :key="index" style="position: relative;">
                     <label type="text" >Convidado {{ index + 1 }}</label> <br>
-                    <input type="text" class="input" name="convidados" placeholder="Nome completo">
+                    <input type="text" value="" class="input" name="convidados" placeholder="Nome completo">
                     
                     <span @click="deleteRow(index)" class="material-symbols-sharp rmv">
                         delete_forever
@@ -105,6 +105,7 @@ export default {
         }
         console.log('done!');
         this.total = 0,
+        principal.value = "";
         this.inputs = [],
         console.log("enviando...");
         console.log(principal.value)
