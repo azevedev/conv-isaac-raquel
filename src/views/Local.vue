@@ -19,7 +19,7 @@
 
                     <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Celebração religiosa</f> <br>
                       Horário: 18:00 <br>
-                        Local: Igreja matriz nossa senhora da Conceição</p>
+                        Local: Igreja matriz nossa Senhora da Conceição, Corrente - PI</p>
                 </div>
 
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -32,7 +32,7 @@
                     </a>
                     <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Recepção</f> <br>
 Horário: Após a celebração religiosa  <br>
-Local: Clube boêmia pub</p> 
+Local: Clube boêmia pub, Corrente - PI</p> 
                 </div>
 
             </div>
