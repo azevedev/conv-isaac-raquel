@@ -31,20 +31,15 @@ export default {
     beforeCreate(){
       // adding title for current view/page using vue-i18n
 
-      // <meta property="og:image" itemprop="image" content="url_image">
+      // <meta property="og:image" itemprop="image" content="https://i.imgur.com/ic60fTr.jpg">
       // adding og:image
       let ogImage = document.createElement('META')
       ogImage.setAttribute('property','og:image')
       ogImage.setAttribute('itemprop','image')
-      ogImage.setAttribute('content','assets/img-preview.png')
+      ogImage.setAttribute('content','https://i.imgur.com/ic60fTr.jpg')
 
-      let ogImage2 = document.createElement('META')
-      ogImage2.setAttribute('property','og:image')
-      ogImage2.setAttribute('itemprop','image')
-      ogImage2.setAttribute('content','/src/assets/img-preview.png')
 
       document.querySelector(`head`).appendChild(ogImage)
-      document.querySelector(`head`).appendChild(ogImage2)
     }
 }
 </script>
