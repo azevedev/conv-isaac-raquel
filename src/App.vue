@@ -30,17 +30,21 @@ export default {
     },
     beforeCreate(){
       // adding title for current view/page using vue-i18n
-      let title = document.createElement(`TITLE`)
-      title.innerText = `Convite - Renata e Gustavo`;
 
-      document.querySelector(`head`).appendChild(title)
-
+      // <meta property="og:image" itemprop="image" content="url_image">
       // adding og:image
-      let ogImage = document.createElement(`META`)
-      ogImage.setAttribute(`name`,`og:image`)
-      ogImage.setAttribute(`content`,`assets/img-preview.png`)
+      let ogImage = document.createElement('META')
+      ogImage.setAttribute('property','og:image')
+      ogImage.setAttribute('itemprop','image')
+      ogImage.setAttribute('content','assets/img-preview.png')
+
+      let ogImage2 = document.createElement('META')
+      ogImage2.setAttribute('property','og:image')
+      ogImage2.setAttribute('itemprop','image')
+      ogImage2.setAttribute('content','/src/assets/img-preview.png')
 
       document.querySelector(`head`).appendChild(ogImage)
+      document.querySelector(`head`).appendChild(ogImage2)
     }
 }
 </script>
