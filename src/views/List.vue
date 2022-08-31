@@ -103,8 +103,6 @@ export default {
     padding-top: 2px;
 }
 
-.li-sec{
-}
 
 p{
     margin-bottom: 4px;

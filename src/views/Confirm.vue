@@ -13,7 +13,7 @@
                 <ul>
                 <li v-for="(input, index) in inputs" :key="index" style="position: relative;">
                     <label type="text" >Convidado {{ index + 1 }}</label> <br>
-                    <input type="text" value="" class="input" name="convidados" placeholder="Nome completo">
+                    <input type="text" v-model="input.value" class="input" name="convidados" placeholder="Nome completo">
                     
                     <span @click="deleteRow(index)" class="material-symbols-sharp rmv">
                         delete_forever
@@ -64,7 +64,7 @@ export default {
       
       this.total++;
 
-      this.inputs.push({name: 'Convidado '+this.total})
+      this.inputs.push({name: 'Convidado '+this.total, value: ""})
 
     },
     
