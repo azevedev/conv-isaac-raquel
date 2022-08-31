@@ -138,7 +138,6 @@ export default {
         this.total = 0,
         this.inputs = [],
         this.hideLoader();
-        
         this.$router.push({
             name: 'Confirmed',
             params: { principal: principal.value, convidados: convidadosJson }

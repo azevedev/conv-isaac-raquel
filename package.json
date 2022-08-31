@@ -8,25 +8,20 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
-        "@syncfusion/ej2-popups": "^20.2.45",
         "core-js": "^3.6.5",
         "firebase": "^9.9.3",
         "tar": "^6.1.11",
         "vue": "^3.0.0",
-        "vue-loading-overlay": "^5.0.3",
-        "vue-loading-spinner": "^1.0.11",
         "vue-router": "^4.0.0-0",
-        "vue2-google-maps": "^0.10.7",
         "vue3-loading-overlay": "^0.0.0"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^5.0.8",
-        "@vue/cli-plugin-eslint": "^5.0.8",
-        "@vue/cli-plugin-router": "^5.0.8",
-        "@vue/cli-service": "^5.0.8",
+        "@vue/cli-plugin-babel": "~4.5.15",
+        "@vue/cli-plugin-eslint": "~4.5.15",
+        "@vue/cli-plugin-router": "~4.5.15",
+        "@vue/cli-service": "~4.5.15",
         "@vue/compiler-sfc": "^3.0.0",
         "babel-eslint": "^10.1.0",
-        "chokidar": "3.5.3",
         "eslint": "^6.7.2",
         "eslint-plugin-vue": "^7.0.0"
     },

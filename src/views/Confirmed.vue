@@ -21,6 +21,7 @@ export default {
     },
     methods: {
         showNames(){
+            console.log(this.$route.params);
             if(this.$route.params.convidados.length == 0)
             return "";
 
