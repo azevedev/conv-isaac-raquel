@@ -1,4 +1,8 @@
 <template>
+    <link itemprop="thumbnailUrl" href="https://i.imgur.com/ic60fTr.jpg"> 
+    <span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject"> 
+      <link itemprop="url" href="https://i.imgur.com/ic60fTr.jpg"> 
+    </span>
     <router-view class="view" v-slot=" { Component }">
       <transition name="fade" mode="out-in">
         <Suspense>
