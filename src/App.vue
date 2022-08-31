@@ -76,6 +76,7 @@ export default {
   margin: 0;
   box-sizing: border-box;
   color: #194B32;
+  font-weight: bold;
 }
 
 body {

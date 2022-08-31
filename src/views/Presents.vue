@@ -44,7 +44,7 @@ p{
     padding: 16px;
     height: 165px;
     margin: 12px;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
