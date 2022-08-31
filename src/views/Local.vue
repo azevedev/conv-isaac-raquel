@@ -6,32 +6,31 @@
         <div id="content">
             <br>
             <h2 style="font-weight: normal;">Abaixo estão os locais dos eventos:</h2>
-            <br><br>
-            <div style="display: flex; justify-content: space-around;">
-                <div style="width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="display: flex; justify-content: space-around; flex-direction: column;">
+                <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 34px;">
                     <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px;">
                        <div class="round">
-                            <span class="material-symbols-outlined" style="font-size: 42px; color: rgb(44, 62, 80);">
+                            <span class="material-symbols-outlined" style="font-size: 42px; color: #eee;">
                                 church
                             </span>
 
                         </div>
                     </a>
 
-                    <p style="text-align: center; font-size: 12px;">Celebração religiosa <br>
+                    <p style="text-align: center; font-size: 16px;">Celebração religiosa <br>
                       Horário: 18:00 <br>
                         Local: Igreja matriz nossa senhora da Conceição</p>
                 </div>
 
-                <div style="width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <a href="https://maps.app.goo.gl/AKfbRupxtfKUBRLU7" style="margin-bottom: 8px;">
                         <div class="round">
-                            <span class="material-symbols-outlined" style="font-size: 42px; color: rgb(44, 62, 80);">
+                            <span class="material-symbols-outlined" style="font-size: 42px; color: #eee;">
                                 nightlife
                             </span>
                         </div>
                     </a>
-                    <p style="text-align: center; font-size: 12px;">Recepção <br>
+                    <p style="text-align: center; font-size: 16px;">Recepção <br>
 Horário: Após a celebração religiosa  <br>
 Local: Clube boêmia pub</p> 
                 </div>
@@ -57,17 +56,17 @@ export default {
 .round{
     width: 85px;
     height: 85px;
-    background: rgb(233, 218, 186);
+    background: #3baa73e7;
     padding: 20px;
     border-radius: 50%;
-    border: 1px solid rgb(191, 151, 66);
+    border: 2px solid #194B32;
     cursor: pointer;
     transition: all .2s ease-in-out;
 
 }
 
 .round:hover{
-    background: rgb(191, 151, 66);;
+    background: #194B32;
 }
 .content {
     padding: 18px;

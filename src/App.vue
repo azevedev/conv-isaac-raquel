@@ -21,14 +21,27 @@ export default {
     name: 'App',
     data() {
         return {
-            phoneNumber: '123-123-123'
         }
     },
     computed: {
     currentRouteName() {
         return this.$route.name;
+    },
+    },
+    beforeCreate(){
+      // adding title for current view/page using vue-i18n
+      let title = document.createElement(`TITLE`)
+      title.innerText = `Convite - Renata e Gustavo`;
+
+      document.querySelector(`head`).appendChild(title)
+
+      // adding og:image
+      let ogImage = document.createElement(`META`)
+      ogImage.setAttribute(`name`,`og:image`)
+      ogImage.setAttribute(`content`,`assets/img-preview.png`)
+
+      document.querySelector(`head`).appendChild(ogImage)
     }
-}
 }
 </script>
 
@@ -59,7 +72,7 @@ export default {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: #BF9742;
+  color: #194B32;
 }
 
 body {

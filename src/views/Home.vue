@@ -71,7 +71,7 @@
     <p style="text-align: center;">
       <i>"Assim, eles já não são dois, mas sim uma só carne. <br>Portanto, o que Deus uniu, ninguém separe."</i>
     </p>
-    <p style="text-align: left; padding-left: 18px;">
+    <p style="text-align: right; padding-right: 24px;">
     - Mateus 19:6
     </p>
     <br>
@@ -80,19 +80,18 @@
     </h1>
     <div class="time-of-env">
       <div class="time">
-        <p>17</p>
-        <p>12</p>
-        <p>22</p>
+        <p>Convidam para a celebração de seu casamento a ser realizada em</p>
+        <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">26 de Novembro de 2022</p>
       </div>
-      <div class="intersection"></div>
-      <div class="date">
+      <!-- <div class="intersection"></div> -->
+      <!-- <div class="date">
         <p>Sábado</p>
         <p style="height: 25px;"></p>
         <p>16:00</p>
         <p>Horas</p>
-      </div>
+      </div> -->
     </div>
-    <div style="z-index: 9999;">
+    <div style="position:absolute; left: 0; text-align:center; bottom: 120px; z-index: 9999; font-size: 10px; width: 100%;">
       <p style="z-index: 9999;">Por favor confirmar presença até dia 26 de outubro de 2022.</p>
       <p style="z-index: 9999;">As senhas só serão entregues após a confirmação da presença.</p>
     </div>
@@ -137,14 +136,13 @@ export default {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    min-height: 200px;
+    min-height: 150px;
     font-size: 30px;
-
   }
 
   .time{
     display: flex;
-    font-size: 38px;
+    font-size: 18px;
     flex-direction: column;
     justify-content: center;
     align-content: center;

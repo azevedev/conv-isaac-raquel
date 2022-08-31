@@ -7,35 +7,9 @@ margin-bottom: 18px;">
         <p style="padding: 20px 30px;">Optamos por não fazer lista de presentes, a sua presença é nosso maior presente! 
             Mas caso queira nos presentear, sugerimos uma quantia através de depósito:</p>
         <div class="info">
-            <div style="width: 100%; display: flex;">
+            <div style="width: 100%; display: flex; justify-content: center;">
                 <div class="card" style="animation-delay: 0.1s;">
-                    <!-- <h2>Contact us</h2> -->
-                    <p><b>PIX:</b> (61) 9 9108-7744</p><br>
-                    <p>Renata Ellen Carvalho dos Santos</p>
-                </div>
-                
-                <div class="card" style="animation-delay: 0.2s;">
-                    <!-- <h2>Contact us</h2> -->
-                    <p><b>Agência: </b>6092</p>
-                    <p><b>Conta: </b>29894-8</p>
-                    <p><b>Conta corrente -</b> Banco do Brasil</p>
-                    <p>Renata Ellen Carvalho dos Santos</p>
-                </div>
-            </div>
-
-            <div style="width: 100%; display: flex;">
-                <div class="card" style="animation-delay: 0.3s;">
-                    <!-- <h2>Contact us</h2> -->
-                    <p><b>Agência: </b>6092</p>
-                    <p><b>Conta: </b>29894-8</p>
-                    <p><b>Conta corrente -</b> Banco do Brasil</p>
-                    <p>Renata Ellen Carvalho dos Santos</p>
-                </div>
-                <div class="card" style="animation-delay: 0.4s;">
-                    <!-- <h2>Contact us</h2> -->
-                    <p><b>Agência: </b>6092</p>
-                    <p><b>Conta: </b>29894-8</p>
-                    <p><b>Conta corrente -</b> Banco do Brasil</p>
+                    <p><b>PIX:</b> (89) 9 9994-2260 </p><br>
                     <p>Renata Ellen Carvalho dos Santos</p>
                 </div>
             </div>
@@ -65,7 +39,7 @@ p{
     
 }
 .card {
-    width: 50%;
+    width: 80%;
     text-align: start;
     padding: 16px;
     height: 165px;

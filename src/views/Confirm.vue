@@ -6,9 +6,6 @@
         <div id="content">
                 <label for="convidado_principal">Convidado Principal</label>
                 <input name="convidado_principal" id="convidado_principal" placeholder="Nome Completo" class="input"/>
-                
-                
-              
 
                 <ul>
                 <li v-for="(input, index) in inputs" :key="index" style="position: relative;">
@@ -20,7 +17,6 @@
                     </span>
                 </li>
                 </ul>
-
 
         </div>
         <div>
@@ -161,9 +157,9 @@ font-size: 27px;
 padding: 2px 10px;
 color: white;
 font-weight: bold;
-background: #BF9742;
+background: #194B32;
 height: 60px;
-margin-top: 50px;
+margin-top: 14px;
 }
 
 i {
@@ -172,7 +168,7 @@ i {
 .rmv{
 cursor: pointer;
 position: absolute;
-bottom: 32px;
+bottom: 26px;
 right: 8px;
 color: brown;
 }
@@ -195,7 +191,7 @@ color: brown;
     padding: 12px;
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     border: 1px solid #ddd;
 }
 .input:focus-visible, .input:focus{
