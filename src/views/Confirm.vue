@@ -48,41 +48,12 @@
 <script>
 import {sendList} from '../main';
 import getAllLists from '../main';
-// Import the method.
-import { useLoading } from 'vue3-loading-overlay';
-// Import stylesheet
-import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 export default {
     name: 'Confirm',
     data() {
         return {
             total: 0,
             inputs: [],
-        }
-    },
-    setup() {
-        let loader = useLoading();
-        const showLoader = () => {
-          loader.show({
-            container: null,
-            fullPage: true,
-            canCancel: false,
-            color: "#FFF",
-            loader: 'dots',
-            opacity: 1,
-            backgroundColor: "#2c3e50",
-            zIndex: 99999999,
-            lockScroll: true,
-          });
-        };
-
-        const hideLoader = () => {
-            loader.hide()
-        }
-          
-        return {
-          showLoader,
-          hideLoader
         }
     },
     methods: {
@@ -106,16 +77,14 @@ export default {
     },
     receiveData(){
         getAllLists()
-
     },
     async sendData(){
-        this.showLoader();
         const principal = document.getElementById('convidado_principal');
         const convidados = document.getElementsByName('convidados');
         console.log("sending...");
         console.log(principal);
         console.log(convidados);
-        if(principal.value.trim() == ""){ this.hideLoader(); return;}
+        if(principal.value.trim() == ""){ return;}
         const principalJson = {
             'nome': principal.value,
             'principal': true,
@@ -137,11 +106,10 @@ export default {
         console.log('done!');
         this.total = 0,
         this.inputs = [],
-        this.hideLoader();
-        this.$router.push({
-            name: 'Confirmed',
-            params: { principal: principal.value, convidados: convidadosJson }
-        });
+        console.log("enviando...");
+        console.log(principal.value)
+        console.log(convidadosJson)
+        this.$router.push({ name: 'Confirmed', query: { id: ID } })
     }
   }
 }

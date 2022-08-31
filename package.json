@@ -12,8 +12,7 @@
         "firebase": "^9.9.3",
         "tar": "^6.1.11",
         "vue": "^3.0.0",
-        "vue-router": "^4.0.0-0",
-        "vue3-loading-overlay": "^0.0.0"
+        "vue-router": "^4.0.0-0"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "~4.5.15",

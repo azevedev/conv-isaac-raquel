@@ -6,7 +6,7 @@ import router from './router'
 
 import { initializeApp } from "firebase/app";
 
-import { getFirestore, getDocs, collection, addDoc, query, where, doc, deleteDoc } from "firebase/firestore";
+import { getFirestore, getDocs, getDoc, collection, addDoc, query, where, doc, deleteDoc } from "firebase/firestore";
 
 
 
@@ -62,6 +62,23 @@ export const getAllPr = async function() {
         })
     });
     return convidadosPr;
+}
+
+export const getPr = async function(id) {
+    const docRef = doc(db, "convidados", id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        return {
+            id: id,
+            ...docSnap.data(),
+        }
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        return null;
+    }
+
 }
 
 export const getAllCnv = async function(id) {

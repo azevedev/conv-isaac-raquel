@@ -1,6 +1,5 @@
 <template>
     <div class="content">
-        <cube-spin></cube-spin>
         <h1 style="font-size: 32px; margin-top: 28px;
 margin-bottom: 18px;">
         Presenças Já Confirmadas
@@ -27,47 +26,27 @@ margin-bottom: 18px;">
 
 <script>
 import {getAllPr, getAllCnv, deleteAllCnv} from '../main';
-// Import the method.
-import { useLoading } from 'vue3-loading-overlay';
-// Import stylesheet
-import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
+
 export default {
     name: 'List',
-    async setup() {
-        let loader = useLoading();
-        const showLoader = () => {
-          loader.show({
-            container: null,
-            fullPage: true,
-            canCancel: false,
-            color: "#FFF",
-            loader: 'dots',
-            opacity: 1,
-            backgroundColor: "#2c3e50",
-            zIndex: 99999999,
-            lockScroll: true,
-          });
-        };
-
-        const hideLoader = () => {
-            loader.hide()
+    data() {
+        return {
         }
-          
-        
-
-        showLoader()
+    },
+    async setup() {
         const convidadosPr = await getAllPr()
         for await (const cnv of convidadosPr){
             cnv.convidados = await getAllCnv(cnv.id)
         }
-        hideLoader();
 
+        
 
+        
         return {
             convidadosPr,
-            showLoader,
-            hideLoader
         }
+    },
+    mounted() {
     },
     methods: {
         async deleteCnv(id, index) {
@@ -76,7 +55,7 @@ export default {
             this.convidadosPr.splice(index,1)
             console.log(this.convidadosPr);
             this.$forceUpdate();
-        },
+        }
     }
 }
 </script>

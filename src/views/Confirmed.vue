@@ -4,7 +4,7 @@
 margin-bottom: 18px;">
         Presen<ffont style="font-size: 22px;">ç</ffont>a Confirmada!
         </h1>
-        <p style="padding: 20px 30px; text-align: left;">Será um imenso prazer receber o senhor(a) <b>{{ this.$route.params.principal }}</b>{{ showNames() }} em nosso casamento. 
+        <p style="padding: 20px 30px; text-align: left;">Será um imenso prazer receber o senhor(a) <b>{{ this.convidadoPr.nome }}</b>{{ this.msg }} em nosso casamento. 
         </p>
         <p style="padding: 0px 30px; text-align: left;">Gratos, Renata e Gustavo.</p>
        
@@ -12,8 +12,41 @@ margin-bottom: 18px;">
 </template>
 
 <script>
+import { useRoute } from 'vue-router';
+import {getPr, getAllCnv} from '../main';
 export default {
     name: 'Confirmed',
+    async setup() {
+        const route = useRoute();
+        console.log('Params: ', route.query.id);
+        const convidadoPr = await getPr(route.query.id);
+        
+        convidadoPr.convidados = await getAllCnv(convidadoPr.id)
+
+        console.log("show names");
+        console.log(convidadoPr);
+        let msg = "";
+        if(convidadoPr.convidados.length != 0){
+            msg = " e sua família ";
+            let index = convidadoPr.convidados.length - 1;
+            for(let i = 0; i < index; i++){
+                if(i == 0)
+                msg +=  convidadoPr.convidados[i].nome;
+                else 
+                msg +=  ', '+convidadoPr.convidados[i].nome;
+            }
+            if(convidadoPr.convidados.length == 1)
+                msg +=  convidadoPr.convidados[index].nome;
+            else
+                msg +=  ' e ' + convidadoPr.convidados[index].nome; 
+        }
+        console.log('msg')
+        console.log(msg)
+        return {
+            convidadoPr,
+            msg
+        }
+    },
     data() {
         return {
             phoneNumber: '123-123-123'
@@ -21,30 +54,12 @@ export default {
     },
     methods: {
         showNames(){
-            console.log(this.$route.params);
-            if(this.$route.params.convidados.length == 0)
-            return "";
-
-            let msg = " e sua família ";
-            let index = this.$route.params.convidados.length - 1;
-            for(let i = 0; i < index; i++){
-                if(i == 0)
-                msg +=  this.$route.params.convidados[i];
-                else 
-                msg +=  ', '+this.$route.params.convidados[i];
-            }
-            msg +=  ' e ' + this.$route.params.convidados[index];
-            return msg;
+            
         }
     },
-    beforeMount(){
-    if(!this.$route.params.principal)
-        window.location.href = '/';
-    },
     created() {
-        
-        console.log('Params: ', this.$route.params);
-    }
+    
+}
 }
 </script>
 <style scoped="">
