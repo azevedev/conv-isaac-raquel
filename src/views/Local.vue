@@ -1,13 +1,13 @@
 <template>
     <div class="content">
       <h1 class="solidaritha c-s">
-        Queridos Amigos e Familiares
+        Localiza<ffont style="font-size: 18px; font-weight: bold;">çã</ffont>o
         </h1>
+        <br>
         <div id="content">
             <br>
-            <h2 style="font-weight: normal;">Abaixo estão os locais dos eventos:</h2>
             <div style="display: flex; justify-content: space-around; flex-direction: column;">
-                <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 34px;">
+                <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 42px;">
                     <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px;">
                        <div class="round">
                             <span class="material-symbols-outlined" style="font-size: 42px; color: #eee;">
@@ -17,7 +17,7 @@
                         </div>
                     </a>
 
-                    <p style="text-align: center; font-size: 16px;">Celebração religiosa <br>
+                    <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Celebração religiosa</f> <br>
                       Horário: 18:00 <br>
                         Local: Igreja matriz nossa senhora da Conceição</p>
                 </div>
@@ -30,7 +30,7 @@
                             </span>
                         </div>
                     </a>
-                    <p style="text-align: center; font-size: 16px;">Recepção <br>
+                    <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Recepção</f> <br>
 Horário: Após a celebração religiosa  <br>
 Local: Clube boêmia pub</p> 
                 </div>
@@ -77,7 +77,7 @@ h2 {
 }
 
 .c-s{
-    font-size: 30px;
+    font-size: 36px;
     letter-spacing: 0px;
 }
 

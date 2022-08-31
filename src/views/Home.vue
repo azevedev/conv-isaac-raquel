@@ -108,6 +108,7 @@ export default {
 <style scoped>
   .home {
     padding: 20px;
+    padding-top: 35px;
   }
 .fade-p{
     animation: fade-p forwards 3s;

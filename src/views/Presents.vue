@@ -8,18 +8,18 @@ margin-bottom: 18px;">
             Mas caso queira nos presentear, sugerimos uma quantia através de depósito:</p>
         <div class="info">
             <div style="width: 100%; display: flex; justify-content: center; flex-direction: column;">
-                <div class="card" style="margin-bottom: 18px; animation-delay: 0.2s;">
-                    <p><b>PIX:</b> (89) 9 9994-2260 </p><br>
-                    <p>Renata Ellen Carvalho dos Santos</p>
-                </div>
-                <div class="card" style="flex-direction: row; justify-content: space-between; padding: 10px 36px; animation-delay: 0.3s;">
+                <div class="card" style="flex-direction: row; justify-content: space-between; padding: 10px 40px; animation-delay: 0.2s;">
                     <p>🥰 R$ 100,00</p>
                     <p>❤️ R$ 200,00</p>
                     <p>😍 R$ 300,00</p>
-                   
                 </div>
-                <div class="card" style="flex-direction: row; animation-delay: 0.4s;">
+                <div class="card" style="margin-bottom: 22px; flex-direction: row; animation-delay: 0.3s;">
                  <p>🥰❤️😍 R$ +300,00</p>
+                </div>
+
+                <div class="card" style="animation-delay: 0.4s;">
+                    <p><b>PIX:</b> (89) 9 9994-2260 </p>
+                    <p>Renata Ellen Carvalho dos Santos</p>
                 </div>
             </div>
         </div>
