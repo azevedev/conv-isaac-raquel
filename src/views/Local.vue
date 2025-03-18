@@ -9,11 +9,8 @@
             <div style="display: flex; justify-content: space-around; flex-direction: column;">
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 42px;">
                     <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px;">
-                       <div class="round">
-                            <span class="material-symbols-outlined" style="font-size: 42px; color: #eee;">
-                                church
-                            </span>
-
+                       <div class="round" >
+                            <VectorChurch :color="'#fff'" />
                         </div>
                     </a>
 
@@ -24,10 +21,8 @@
 
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <a href="https://maps.app.goo.gl/AKfbRupxtfKUBRLU7" style="margin-bottom: 8px;">
-                        <div class="round">
-                            <span class="material-symbols-outlined" style="font-size: 42px; color: #eee;">
-                                nightlife
-                            </span>
+                        <div class="round" style="padding-bottom: 10px;">
+                            <VectorGlasses :color="'#fff'" />
                         </div>
                     </a>
                     <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Recepção</f> <br>
@@ -38,35 +33,46 @@ Local: Clube boêmia pub, Corrente - PI</p>
             </div>
             
         </div>
-        <footer>
-    </footer></div>
+    </div>
 </template>
 
 <script>
+
+import VectorChurch from '../components/VectorChurch.vue';
+import VectorGlasses from '../components/VectorGlasses.vue';
+
+
 export default {
     name: 'Local',
+    components: {
+        VectorChurch,
+        VectorGlasses
+    },
     data() {
         return {
-            phoneNumber: '123-123-123'
+            phoneNumber: '123-123-123',
         }
     }
 }
 </script>
 <style scoped="">
-.round{
+.round{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 85px;
     height: 85px;
     background: #3baa73e7;
     padding: 20px;
     border-radius: 50%;
-    border: 2px solid #194B32;
+    border: 2px solid #a97f53;
     cursor: pointer;
     transition: all .2s ease-in-out;
 
 }
 
 .round:hover{
-    background: #194B32;
+    background: #a97f53;
 }
 .content {
     padding: 18px;

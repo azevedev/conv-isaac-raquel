@@ -6,7 +6,7 @@
     <router-view class="view" v-slot=" { Component }">
       <transition name="fade" mode="out-in">
         <Suspense>
-        <component :is="Component" />
+          <component :is="Component" />
         </Suspense>
       </transition>
     </router-view>
@@ -18,15 +18,21 @@
     <div class="links">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
       <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Confirmar Presença</router-link>
-      <router-link to="/local" v-if="currentRouteName !== 'Local'">Local do Evento</router-link>
+      <router-link to="/local" v-if="currentRouteName !== 'Local'" style="min-width: 100px;">Local do Evento</router-link>
       <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Lista de Presentes</router-link>
     </div>
   </div>
+
+  <ButterFly />
   
 </template>
 <script>
+import ButterFly from './components/ButterFly.vue';
 export default {
     name: 'App',
+    components: {
+        ButterFly
+    },
     data() {
         return {
         }
@@ -55,104 +61,114 @@ export default {
 
 <style>
 
-@font-face {
-    font-family: "Solidaritha";
-    src: local("Solidaritha"),   url("./assets/fonts/SolidarithaScript.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "Petit";
-    src: local("Petit"),   url("./assets/fonts/PetitScript.ttf") format("truetype");
-  }
-
-  .solidaritha{
-    font-family: "Solidaritha";
+  .solidaritha {
+    font-family: "Dancing Script", serif;
     font-size: 40px; 
     line-height: 60px;
     letter-spacing: 0px;
   }
-  ffont{
+
+  ffont {
     font-family: "Petit";
+    font-family: "Crimson Text", serif;
   }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  color: #194B32;
-  font-weight: bold;
-}
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #a97f53;
+    font-weight: bold;
+  }
 
-body {
-  display: flex;
-}
+  body {
+    display: flex;
+  }
 
 
-#app {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  #app {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-#nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 25px;
-  z-index: 9999;
-}
+  #nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 25px;
+    z-index: 9999;
+    width: 100%;
+  }
 
-.links{
-  padding: 12px;
-  display: flex;
-}
+  .links{
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-#nav a {
-  border: solid #194B32 1px;
-  padding: 14px 12px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #194B32;
-  font-weight: bold;
-  background: white;
-  font-size: 10px;
-  margin: 0px 8px;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-}
+  #nav a {
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #a97f53;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0px 8px;
+    width: 100px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 55px;
+    background: #fffdee;
+    box-shadow:  10px 10px 19px #b3b1a7,
+                -10px -10px 19px #ffffff;
+    text-align: center;
+    transition: all .2s ease-in-out;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  #nav a.router-link-exact-active {
+    color: #42b983;
+  }
 
-.view{
-  max-width: 500px;
-  height: 75vh;
-  min-height: 75vh;
-  max-height: 75vh;
-}
+  #nav a:hover{
+    background: #a97f53;
+    color: #fff;
+    box-shadow:  10px 10px 19px #b3b1a7,
+                -10px -10px 19px #ffffff;
+  }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+  .view{
+    max-width: 500px;
+    height: 75vh;
+    min-height: 75vh;
+    max-height: 75vh;
+  }
 
-.fade-enter-active,
-.fade-leave-active{
-  transition: opacity 0.3s ease-out;
-}
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
 
+  .fade-enter-active,
+  .fade-leave-active{
+    transition: opacity 0.3s ease-out;
+  }
+
+
+  body {
+    background: #fffdee;
+  }
 
 
   

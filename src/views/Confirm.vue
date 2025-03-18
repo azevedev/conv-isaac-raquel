@@ -42,8 +42,7 @@
 </template>
 
 <script>
-import {sendList} from '../main';
-import getAllLists from '../main';
+import getAllLists, { sendList } from '../main';
 export default {
     name: 'Confirm',
     data() {
@@ -74,6 +73,9 @@ export default {
     receiveData(){
         getAllLists()
     },
+    capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    },
     async sendData(){
         const principal = document.getElementById('convidado_principal');
         const convidados = document.getElementsByName('convidados');
@@ -82,7 +84,7 @@ export default {
         console.log(convidados);
         if(principal.value.trim() == ""){ return;}
         const principalJson = {
-            'nome': principal.value,
+            'nome': this.capitalize(principal.value),
             'principal': true,
         };
         console.log(principalJson)
@@ -157,7 +159,7 @@ font-size: 27px;
 padding: 2px 10px;
 color: white;
 font-weight: bold;
-background: #194B32;
+background: #a97f53;
 height: 60px;
 margin-top: 14px;
 }

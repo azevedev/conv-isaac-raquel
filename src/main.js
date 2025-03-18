@@ -1,19 +1,14 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
 
 // Import the functions you need from the SDKs you need
 
 import { initializeApp } from "firebase/app";
 
-import { getFirestore, getDocs, getDoc, collection, addDoc, query, where, doc, deleteDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 
-
-
-import { getAnalytics } from "firebase/analytics";
-
-// TODO: Add SDKs for Firebase products that you want to use
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -24,21 +19,20 @@ import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyBgtUdYv8FCTozRGHkEpFKJOEsqqEFX4hQ",
-
-    authDomain: "convite-renata-gustavo-8ba6b.firebaseapp.com",
-
-    projectId: "convite-renata-gustavo-8ba6b",
-
-    storageBucket: "convite-renata-gustavo-8ba6b.appspot.com",
-
-    messagingSenderId: "42631460753",
-
-    appId: "1:42631460753:web:b9b12bfdf6b344f3a38c30",
-
-    measurementId: "G-0H50SMRJWH"
-
-};
+    apiKey: "AIzaSyACSRNUx_IjJa1sW6a_aG7fsFBqs558-2E",
+  
+    authDomain: "convite-isaac-raquel.firebaseapp.com",
+  
+    projectId: "convite-isaac-raquel",
+  
+    storageBucket: "convite-isaac-raquel.firebasestorage.app",
+  
+    messagingSenderId: "929177031263",
+  
+    appId: "1:929177031263:web:9677dfb646b72c7fb801ea"
+  
+  };
+  
 
 export const getAllLists = async function(db) {
     const citiesCol = collection(db, 'convidados');
@@ -112,11 +106,6 @@ export const deleteAllCnv = async function(id) {
 }
 
 
-
-
-
-
-
 // Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
@@ -128,7 +117,5 @@ export const sendList = async function(data) {
     return ref.id;
 }
 
-const analytics = getAnalytics(app);
-if (analytics) console.log('ok')
 
 createApp(App).use(router).mount('#app')

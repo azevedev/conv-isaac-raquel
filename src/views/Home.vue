@@ -76,7 +76,7 @@
     </p>
     <br>
     <h1 class="solidaritha">
-      Renata <br>E<br> Gustavo
+      Isaac <br>E<br> Raquel
     </h1>
     <div class="time-of-env">
       <div class="time">
