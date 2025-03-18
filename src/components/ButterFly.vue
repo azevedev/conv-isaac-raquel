@@ -39,8 +39,9 @@ export default {
       currentFlapDelay: this.generateRandomFlap(),
       currentColor: this.wingColor || this.generateRandomColor(),
       butterFlySize: 50, // Size of the butterfly element
-      position: { x: this.positionX ||window.innerWidth * (Math.random()), y: this.positionY || window.innerHeight * (Math.random()) },
+      position: { x: this.positionX ||window.innerWidth * (Math.random()), y: this.positionY || window.innerHeight / 2 + window.innerHeight * (Math.random()) },
       velocity: { x: Math.random(), y: Math.random()},
+      isFixed: this.fixed,
     };
   },
   mounted() {
@@ -67,37 +68,60 @@ export default {
     },
     animateButterFly() {
       const updatePosition = () => {
-        const angle = Math.random() * 2 * Math.PI;
-        const speed = .3; // Adjust for desired speed
-        this.velocity.x += Math.cos(angle) * speed;
-        this.velocity.y += Math.sin(angle) * speed;
+         // Assign unique phase offset and time factor for each butterfly
+  if (!this.phaseOffset) this.phaseOffset = Math.random() * Math.PI * 2; 
+  if (!this.timeFactor) this.timeFactor = 0.8 + Math.random() * 0.4; 
 
-        // Apply easing to the velocity for smoother movement
-        this.velocity.x *= 0.98;
-        this.velocity.y *= 0.98;
+  // Create a more natural flight path using sine and cosine waves
+  const time = (performance.now() * 0.001 * this.timeFactor) + this.phaseOffset;// Use time to make the movement smoother
 
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
+  const angle = Math.sin(time) * Math.PI * 2; 
+  const speed = 0.8 + Math.random() * 0.3; // Random speed variation for natural fluttering
 
-        // Ensure the butterfly stays within the viewport
-        if (this.position.x < 0) this.position.x = 0;
-        if (this.position.y < 0) this.position.y = 0;
-        if (this.position.x + this.butterFlySize > window.innerWidth)
-          this.position.x = window.innerWidth - this.butterFlySize;
-        if (this.position.y + this.butterFlySize > window.innerHeight)
-          this.position.y = window.innerHeight - this.butterFlySize;
+  // Gradual changes in direction
+  this.velocity.x += Math.cos(angle) * speed * 0.1; 
+  this.velocity.y += speed * -0.4;
 
-           // Calculate position as a percentage of the viewport dimensions
-        const leftPercent = (this.position.x / window.innerWidth) * 100;
-        const topPercent = (this.position.y / window.innerHeight) * 100;
+  // Apply easing for smooth acceleration and deceleration
+  this.velocity.x *= 0.92; 
+  this.velocity.y *= 0.92;
 
-        this.butterFlyElement.style.left = `${leftPercent}%`;
-        this.butterFlyElement.style.top = `${topPercent}%`;
-        
-        if(!this.fixed) {
-          requestAnimationFrame(updatePosition);
-        }
-      };
+  // Update position
+  this.position.x += this.velocity.x;
+  this.position.y += this.velocity.y;
+
+  // Add gentle upward drift for realism
+  this.position.y -= Math.sin(time * 0.5) * 0.5; 
+
+  // Ensure the butterfly stays within the viewport
+  const maxX = window.innerWidth - this.butterFlySize;
+  // const maxY = window.innerHeight - this.butterFlySize;
+
+  if (this.position.x < 0) this.position.x = 0;
+  if (this.position.y < 0 - this.butterFlySize) {
+    // this.position.y = window.innerHeight + this.butterFlySize;
+    // this.currentShouldFlip = !this.currentShouldFlip;
+    // this.currentFlapDelay = this.generateRandomFlap();
+    // this.currentColor = this.generateRandomColor();
+    // this.position.x = Math.random() * window.innerWidth;
+    this.isFixed = true;
+  }
+  if (this.position.x > maxX) this.position.x = maxX;
+  // if (this.position.y > maxY) this.position.y = maxY;
+
+  // Convert position to percentages
+  const leftPercent = (this.position.x / window.innerWidth) * 100;
+  // const topPercent = (this.position.y / window.innerHeight) * 100;
+
+  // Apply position
+  this.butterFlyElement.style.left = `${leftPercent}%`;
+  this.butterFlyElement.style.top = `${this.position.y}px`;
+  // console.log('this.position.y', this.position.y)
+  // Keep animating
+  if (!this.isFixed) {
+    requestAnimationFrame(updatePosition);
+  }
+};
       
       requestAnimationFrame(updatePosition);
     },

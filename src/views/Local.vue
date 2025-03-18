@@ -8,9 +8,12 @@
             <br>
             <div style="display: flex; justify-content: space-around; flex-direction: column;">
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 42px;">
-                    <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px; border-radius: 50%;
+    background: #fffdee;
+    box-shadow:  10px 10px 19px #b3b1a7,
+                -10px -10px 19px #ffffff;">
                        <div class="round" >
-                            <VectorChurch :color="'#fff'" />
+                            <VectorChurch :color="'#a97f53'" />
                         </div>
                     </a>
 
@@ -22,7 +25,7 @@
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <a href="https://maps.app.goo.gl/AKfbRupxtfKUBRLU7" style="margin-bottom: 8px;">
                         <div class="round" style="padding-bottom: 10px;">
-                            <VectorGlasses :color="'#fff'" />
+                            <VectorGlasses :color="'#a97f53'" />
                         </div>
                     </a>
                     <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Recepção</f> <br>
@@ -62,17 +65,18 @@ export default {
     align-items: center;
     width: 85px;
     height: 85px;
-    background: #3baa73e7;
     padding: 20px;
     border-radius: 50%;
-    border: 2px solid #a97f53;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    background: #fffdee;
+    box-shadow:  10px 10px 19px #b3b1a7,
+                -10px -10px 19px #ffffff;
 
 }
 
 .round:hover{
-    background: #a97f53;
+    scale: 1.2;
 }
 .content {
     padding: 18px;

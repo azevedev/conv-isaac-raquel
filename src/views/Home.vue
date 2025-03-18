@@ -96,6 +96,16 @@
       <ButterFly :fixed="true" :positionX="60" :positionY="60" />
       <ButterFly :fixed="true" :positionX="80" :positionY="80" />
 
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
+      <ButterFly :positionX="300" :positionY="300"/>
       <ButterFly />
       <ButterFly />
       <ButterFly />
@@ -111,6 +121,8 @@
       <ButterFly />
       <ButterFly />
       <ButterFly />
+      <ButterFly />
+
     </div>
   </div>
 </template>
