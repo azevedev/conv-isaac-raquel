@@ -15,24 +15,19 @@
       <p v-if="currentRouteName == 'Home'" style="z-index: 9999;">Por favor confirmar presença até dia 26 de outubro de 2022.</p>
       <p v-if="currentRouteName == 'Home'" style="z-index: 9999;">As senhas só serão entregues após a confirmação da presença.</p>
     </div>
-    <div class="links">
+    <div class="links" style="margin-bottom: 20px;">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
       <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Confirmar Presença</router-link>
       <router-link to="/local" v-if="currentRouteName !== 'Local'" style="min-width: 100px;">Local do Evento</router-link>
       <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Lista de Presentes</router-link>
     </div>
   </div>
-
-  <ButterFly />
   
 </template>
 <script>
-import ButterFly from './components/ButterFly.vue';
+
 export default {
     name: 'App',
-    components: {
-        ButterFly
-    },
     data() {
         return {
         }
@@ -83,8 +78,8 @@ export default {
 
   body {
     display: flex;
+    overflow: hidden;
   }
-
 
   #app {
     font-family: Roboto, Helvetica, Arial, sans-serif;

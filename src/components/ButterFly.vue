@@ -1,12 +1,14 @@
 <template>
-  <div class="butterfly" ref="butterFly">
-    <div class="wing">
-      <div class="bit"></div>
-      <div class="bit"></div>
-    </div>
-    <div class="wing">
-      <div class="bit"></div>
-      <div class="bit"></div>
+  <div ref="butterFlyContainer" style="perspective: 1000px;" class="butterFlyContainer" :class="{'flip': this.currentShouldFlip}">
+    <div :style="{ '--wing-color': this.currentColor, '--rnd-flap': this.currentFlapDelay }" class="butterfly" ref="butterFly">
+      <div class="wing">
+        <div class="bit"></div>
+        <div class="bit"></div>
+      </div>
+      <div class="wing">
+        <div class="bit"></div>
+        <div class="bit"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,61 +16,101 @@
 <script>
 export default {
   props: {
-    wing: {
+    wingColor: {
       type: String,
-      default: "#333333",
+      default: null,
+    },
+    fixed: {
+      type: Boolean,
+      default: false,
+    },
+    positionX: {
+      type: Number,
+      default: null,
+    },
+    positionY: {
+      type: Number,
+      default: null,
     },
   },
   data() {
     return {
+      currentShouldFlip: this.shouldFlip(),
+      currentFlapDelay: this.generateRandomFlap(),
+      currentColor: this.wingColor || this.generateRandomColor(),
       butterFlySize: 50, // Size of the butterfly element
+      position: { x: this.positionX ||window.innerWidth * (Math.random()), y: this.positionY || window.innerHeight * (Math.random()) },
+      velocity: { x: Math.random(), y: Math.random()},
     };
   },
   mounted() {
     this.$nextTick(() => {
-      const butterFlyElement = this.$refs.butterFly;
-      if (!butterFlyElement) {
-        console.error("Butterfly element not found");
-        return;
-      }
-      this.startButterFlyMovement();
+      this.butterFlyElement = this.$refs.butterFlyContainer;
+      this.butterFlyElement.style.position = 'absolute';
+      this.animateButterFly();
     });
   },
   methods: {
-    startButterFlyMovement() {
-      const butterFlyElement = this.$refs.butterFly;
-      if (!butterFlyElement) {
-        console.error("Butterfly element not found");
-        return;
+    generateRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
       }
-
-      const moveButterFly = () => {
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        const rect = butterFlyElement.getBoundingClientRect();
-        let currentX = rect.left;
-        let currentY = rect.top;
+      return color;
+    },
+    generateRandomFlap() {
+      return (Math.random() * 1500) + 'ms';
+    },
+    shouldFlip() {
+      return Math.random() < 0.5;
+    },
+    animateButterFly() {
+      const updatePosition = () => {
         const angle = Math.random() * 2 * Math.PI;
-        const distance = 50;
-        let newX = currentX + distance * Math.cos(angle);
-        let newY = currentY + distance * Math.sin(angle);
-        if (newX < 0) newX = 0;
-        if (newY < 0) newY = 0;
-        if (newX + this.butterFlySize > viewportWidth)
-          newX = viewportWidth - this.butterFlySize;
-        if (newY + this.butterFlySize > viewportHeight)
-          newY = viewportHeight - this.butterFlySize;
-        butterFlyElement.style.left = `${newX}px`;
-        butterFlyElement.style.top = `${newY}px`;
-      };
+        const speed = .3; // Adjust for desired speed
+        this.velocity.x += Math.cos(angle) * speed;
+        this.velocity.y += Math.sin(angle) * speed;
 
-      setInterval(moveButterFly, 1000);
+        // Apply easing to the velocity for smoother movement
+        this.velocity.x *= 0.98;
+        this.velocity.y *= 0.98;
+
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+
+        // Ensure the butterfly stays within the viewport
+        if (this.position.x < 0) this.position.x = 0;
+        if (this.position.y < 0) this.position.y = 0;
+        if (this.position.x + this.butterFlySize > window.innerWidth)
+          this.position.x = window.innerWidth - this.butterFlySize;
+        if (this.position.y + this.butterFlySize > window.innerHeight)
+          this.position.y = window.innerHeight - this.butterFlySize;
+
+           // Calculate position as a percentage of the viewport dimensions
+        const leftPercent = (this.position.x / window.innerWidth) * 100;
+        const topPercent = (this.position.y / window.innerHeight) * 100;
+
+        this.butterFlyElement.style.left = `${leftPercent}%`;
+        this.butterFlyElement.style.top = `${topPercent}%`;
+        
+        if(!this.fixed) {
+          requestAnimationFrame(updatePosition);
+        }
+      };
+      
+      requestAnimationFrame(updatePosition);
     },
   },
 };
 </script>
 
 <style scoped>
+
+.butterFlyContainer {
+  animation: fadeIn 2s ease-in-out;
+}
+
 .butterfly {
   animation: hover 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
   animation-direction: alternate;
@@ -80,7 +122,6 @@ export default {
   transform-style: preserve-3d;
   transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateY(0px);
   width: 15px;
-  background-color: red;
 }
 
 .wing {
@@ -93,9 +134,10 @@ export default {
 }
 
 .wing:first-child {
-  animation: leftflap 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+  animation: leftflap 0.8s cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
   animation-direction: alternate;
   animation-fill-mode: reverse;
+  animation-delay: var(--rnd-flap);
   height: 1px;
   left: 0;
   transform: rotateY(-20deg);
@@ -105,20 +147,21 @@ export default {
 }
 
 .wing:last-child {
-  animation: rightflap 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+  animation: rightflap 0.8s cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
   animation-direction: alternate;
   animation-fill-mode: reverse;
+  animation-delay: var(--rnd-flap);
   right: 0;
   transform: rotateY(200deg);
   z-index: 1;
 }
 
 .bit {
-  background: dodgerblue;
+  background: var(--wing-color);
 }
 
 .bit::after {
-  background: lighten(dodgerblue, 10%);
+  background: rgba(255, 255, 255, 0.10);
 }
 
 .bit,
@@ -162,6 +205,20 @@ export default {
   top: 5px;
   width: 60px;
   z-index: 1;
+}
+
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes hover {

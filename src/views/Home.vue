@@ -91,17 +91,39 @@
         <p>Horas</p>
       </div> -->
     </div>
+    <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;">
+      <ButterFly :fixed="true" :positionX="40" :positionY="40"/>
+      <ButterFly :fixed="true" :positionX="60" :positionY="60" />
+      <ButterFly :fixed="true" :positionX="80" :positionY="80" />
+
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import ButterFly from '@/components/ButterFly.vue';
 
 export default {
   name: 'Home',
   components: {
-    
-  }
+        ButterFly
+  },
 }
 </script>
 
