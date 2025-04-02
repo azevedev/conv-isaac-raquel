@@ -19,7 +19,7 @@ margin-bottom: 18px;">
 
                 <div class="card" style="animation-delay: 0.4s; font-size: 22px;">
                     <p><b>PIX:</b> (89) 9 9994-2260 </p>
-                    <p>Renata Ellen Carvalho dos Santos</p>
+                    <p><b>Depósito:</b> 1234-1234-1234-1234</p>
                 </div>
             </div>
         </div>

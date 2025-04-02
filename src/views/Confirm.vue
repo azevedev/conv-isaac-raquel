@@ -12,25 +12,21 @@
                     <label type="text" >Convidado {{ index + 1 }}</label> <br>
                     <input type="text" v-model="input.value" class="input" name="convidados" placeholder="Nome completo">
                     
-                    <span @click="deleteRow(index)" class="material-symbols-sharp rmv">
-                        delete_forever
-                    </span>
+                    <VectorDelete @click="deleteRow(index)" width="24px" height="24px" class="rmv" />
                 </li>
                 </ul>
 
         </div>
-        <div>
+        <div v-if="total <= 5">
             <div style="width: 100%; display: flex; flex-direction: column;">
                     <button type="submit" @click="handleSubmit">
-                        <span class="material-symbols-sharp" style="font-size: 80px;">
-                            add_circle
-                        </span>
+                        <VectorPlus width="68px" height="68px" color="#a97f53" />
                     </button>
-                    <p>Adicionar convidado</p>
+                    <p style="font-size: 16px;">Adicionar convidado</p>
             </div>
         </div>
 
-        <div style="
+        <div v-if="total > 0" style="
     transition: all 2s;">
             <div style="width: 100%; display: flex; flex-direction: column;">
                     <button type="submit" @click="sendData" class="send">
@@ -42,9 +38,15 @@
 </template>
 
 <script>
+import VectorDelete from '../components/VectorDelete.vue';
+import VectorPlus from '../components/VectorPlus.vue';
 import getAllLists, { sendList } from '../main';
 export default {
     name: 'Confirm',
+    components: {
+        VectorPlus,
+        VectorDelete
+    },
     data() {
         return {
             total: 0,
@@ -155,7 +157,7 @@ border: 1px solid;
 border-radius: 8px;
 text-align: center;
 width: 100%;
-font-size: 27px;
+font-size: 22px;
 padding: 2px 10px;
 color: white;
 font-weight: bold;
@@ -170,9 +172,9 @@ i {
 .rmv{
 cursor: pointer;
 position: absolute;
-bottom: 26px;
+bottom: 50%;
+translate: 0 50%;
 right: 8px;
-color: brown;
 }
 
 
@@ -180,7 +182,7 @@ color: brown;
     font-size: 36px
 }
 .content {
-    padding: 18px;
+    padding: 14px;
     overflow: scroll;
 }
 #content{

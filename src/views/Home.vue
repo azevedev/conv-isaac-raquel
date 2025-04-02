@@ -94,18 +94,6 @@
     <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;">
       <ButterFly :fixed="true" :positionX="40" :positionY="40"/>
       <ButterFly :fixed="true" :positionX="60" :positionY="60" />
-      <ButterFly :fixed="true" :positionX="80" :positionY="80" />
-
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
-      <ButterFly :positionX="300" :positionY="300"/>
       <ButterFly />
       <ButterFly />
       <ButterFly />
@@ -116,13 +104,6 @@
       <ButterFly />
       <ButterFly />
       <ButterFly />
-      <ButterFly />
-      <ButterFly />
-      <ButterFly />
-      <ButterFly />
-      <ButterFly />
-      <ButterFly />
-
     </div>
   </div>
 </template>
