@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="fade-move" src="../assets/img2.png" style="position: fixed;
+    <img class="fade-move " src="../assets/img2.png" style="position: fixed;
                 bottom: -70px;
                 left: -20px;
                 width: 150px;
@@ -9,7 +9,7 @@
                 opacity: 0;
                 animation-delay: .3s;
                 ;"/>
-              <img class="fade-move-scale" src="../assets/img2.png" style="position: fixed;
+              <img class="fade-move-scale " src="../assets/img2.png" style="position: fixed;
               bottom: -100px;
               left: -90px;
               width: 150px;
@@ -19,6 +19,89 @@
               opacity: 0;
               animation-delay: .45s;
               ;"/>
+
+
+
+<!-- Left Side -->
+<img class="fade-move " src="../assets/flower-red.png" style="position: fixed;
+  bottom: -70px;
+  left: -20px;
+  width: 150px;
+  z-index: -98;
+  rotate: 45deg;
+  opacity: 0;
+  animation-delay: .3s;
+  ;"/>
+<img class="fade-move-scale " src="../assets/flower-yellow.png" style="position: fixed;
+   bottom: -40px;
+  left: -40px;
+  width: 150px;
+  z-index: -97;
+  rotate: 20deg;
+  opacity: 0;
+  animation-delay: .45s;
+  ;"/>
+
+<img class="fade-move-scale " src="../assets/flower-purple.png" style="position: fixed;
+  bottom: -100px;
+  left: 0px;
+  width: 150px;
+  z-index: -96;
+  rotate: 60deg;
+  opacity: 0;
+  animation-delay: .45s;
+  ;"/>
+
+
+<RandFlowers :start="5" :left="-40" />
+<RandFlowers :start="20" :left="-40" />
+<RandFlowers :start="35" :left="-40" />
+<RandFlowers :start="50" :left="-40" />
+<RandFlowers :start="65" :left="-40" />
+<RandFlowers :start="80" :left="-40" />
+
+
+<RandFlowers :start="5" :right="-35" flip />
+<RandFlowers :start="20" :right="-35" flip />
+<RandFlowers :start="35" :right="-35" flip />
+<RandFlowers :start="50" :right="-35" flip />
+<RandFlowers :start="65" :right="-35" flip />
+<RandFlowers :start="80" :right="-35" flip />
+
+
+
+
+
+<!-- Right Side -->
+
+<img class="fade-move " src="../assets/flower-red.png" style="position: fixed;
+  bottom: -70px;
+  right: -20px;
+  width: 150px;
+  z-index: -99;
+  rotate: -45deg;
+  opacity: 0;
+  animation-delay: .3s;
+  ;"/>
+<img class="fade-move-scale " src="../assets/flower-yellow.png" style="position: fixed;
+  bottom: -40px;
+  right: -40px;
+  width: 150px;
+  z-index: -98;
+  rotate: -20deg;
+  opacity: 0;
+  animation-delay: .45s;
+  ;"/>
+
+<img class="fade-move-scale " src="../assets/flower-purple.png" style="position: fixed;
+  bottom: -100px;
+  right: 0;
+  width: 150px;
+  z-index: -97;
+  rotate: -60deg;
+  opacity: 0;
+  animation-delay: .45s;
+  ;"/>
 
 
 
@@ -66,22 +149,22 @@
                 opacity: 0;
                 animation-delay: .2s;
                 ;"/>
-    <img src="../assets/rg.png" style="width: 80px; height: 62px;
-              margin-bottom: 30px; filter: grayscale(60%);">
+    <img src="../assets/letters.png" style="width: 80px; height: 80px;
+              margin-bottom: 30px; ">
     <p style="text-align: center;">
-      <i>"Assim, eles já não são dois, mas sim uma só carne. <br>Portanto, o que Deus uniu, ninguém separe."</i>
+      <i>"O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor. O amor não se alegra com a injustiça, mas se alegra com a verdade. Tudo sofre, tudo crê, tudo espera, tudo suporta."</i>
     </p>
     <p style="text-align: right; padding-right: 24px;">
-    - Mateus 19:6
+    - 1 Coríntios 13:4-7
     </p>
     <br>
     <h1 class="solidaritha">
-      Isaac <br>E<br> Raquel
+      Jean <br>E<br> Raquel
     </h1>
     <div class="time-of-env">
       <div class="time">
         <p>Convidam para a celebração de seu casamento a ser realizada em</p>
-        <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">26 de Novembro de 2022</p>
+        <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">24 de Maio de 2025</p>
       </div>
       <!-- <div class="intersection"></div> -->
       <!-- <div class="date">
@@ -92,8 +175,8 @@
       </div> -->
     </div>
     <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;">
-      <ButterFly :fixed="true" :positionX="40" :positionY="40"/>
-      <ButterFly :fixed="true" :positionX="60" :positionY="60" />
+      <ButterFly :fixed="true" :positionX="92"  :positionY="87" :side="'right'"  />
+      <ButterFly :fixed="true" :positionX="90" :positionY="92" :side="'left'" />
       <ButterFly />
       <ButterFly />
       <ButterFly />
@@ -111,11 +194,13 @@
 <script>
 // @ is an alias to /src
 import ButterFly from '@/components/ButterFly.vue';
+import RandFlowers from '../components/RandFlowers.vue';
 
 export default {
   name: 'Home',
   components: {
-        ButterFly
+        ButterFly,
+        RandFlowers
   },
 }
 </script>
@@ -140,6 +225,10 @@ export default {
 
 .fade-move-scale{
     animation: fade-move-scale forwards 2s;
+}
+
+.fade-move-scale-full{
+    animation: fade-move-scale-full forwards 2s;
 }
 
   
@@ -225,5 +314,21 @@ export default {
     }
   }
 
+  @keyframes fade-move-scale-full {
+    0%{
+        opacity: 0;
+        transform: translateY(100px) scaleX(-1);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px) scaleX(-1);
+    }
+  }
+
+  
+
+  .hidden {
+    display: none;
+  }
  
 </style>

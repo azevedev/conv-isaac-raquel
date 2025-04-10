@@ -1,5 +1,5 @@
 <template>
-  <div ref="butterFlyContainer" style="perspective: 1000px;" class="butterFlyContainer" :class="{'flip': this.currentShouldFlip}">
+  <div ref="butterFlyContainer" style="perspective: 100000px; scale: 0.5;" class="butterFlyContainer" :class="{'flip': this.currentShouldFlip}">
     <div :style="{ '--wing-color': this.currentColor, '--rnd-flap': this.currentFlapDelay }" class="butterfly" ref="butterFly">
       <div class="wing">
         <div class="bit"></div>
@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    side: {
+      type: String,
+      default: '',
+    },
     positionX: {
       type: Number,
       default: null,
@@ -35,19 +39,21 @@ export default {
   },
   data() {
     return {
+      isFixed: this.fixed,
       currentShouldFlip: this.shouldFlip(),
       currentFlapDelay: this.generateRandomFlap(),
       currentColor: this.wingColor || this.generateRandomColor(),
-      butterFlySize: 50, // Size of the butterfly element
+      butterFlySize: 25, // Size of the butterfly element
       position: { x: this.positionX ||window.innerWidth * (Math.random()), y: this.positionY || window.innerHeight / 2 + window.innerHeight * (Math.random()) },
       velocity: { x: Math.random(), y: Math.random()},
-      isFixed: this.fixed,
+      unit: this.fixed ? '%' : 'px',
     };
   },
   mounted() {
     this.$nextTick(() => {
       this.butterFlyElement = this.$refs.butterFlyContainer;
-      this.butterFlyElement.style.position = 'absolute';
+      if(this.isFixed) this.butterFlyElement.style.position = 'fixed';
+      else this.butterFlyElement.style.position = 'absolute';
       this.animateButterFly();
     });
   },
@@ -64,9 +70,12 @@ export default {
       return (Math.random() * 1500) + 'ms';
     },
     shouldFlip() {
+      if(this.fixed && this.side === 'left') return true;
+      if(this.fixed && this.side === 'right') return false;
       return Math.random() < 0.5;
     },
     animateButterFly() {
+      
       const updatePosition = () => {
          // Assign unique phase offset and time factor for each butterfly
   if (!this.phaseOffset) this.phaseOffset = Math.random() * Math.PI * 2; 
@@ -114,8 +123,8 @@ export default {
   // const topPercent = (this.position.y / window.innerHeight) * 100;
 
   // Apply position
-  this.butterFlyElement.style.left = `${this.position.x}px`;
-  this.butterFlyElement.style.top = `${this.position.y}px`;
+  this.butterFlyElement.style.left = `${this.position.x}${this.unit}`;
+  this.butterFlyElement.style.top = `${this.position.y}${this.unit}`;
   // console.log('this.position.y', this.position.y)
   // Keep animating
   if (!this.isFixed) {

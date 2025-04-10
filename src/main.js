@@ -18,28 +18,21 @@ import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, quer
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyACSRNUx_IjJa1sW6a_aG7fsFBqs558-2E",
-  
-    authDomain: "convite-isaac-raquel.firebaseapp.com",
-  
-    projectId: "convite-isaac-raquel",
-  
-    storageBucket: "convite-isaac-raquel.firebasestorage.app",
-  
-    messagingSenderId: "929177031263",
-  
-    appId: "1:929177031263:web:9677dfb646b72c7fb801ea"
-  
-  };
+    apiKey: "AIzaSyCyRx08SJTg8TLaKGvr9vVsBMlopzfsZl8",
+    authDomain: "convite-jean-raquel.firebaseapp.com",
+    projectId: "convite-jean-raquel",
+    storageBucket: "convite-jean-raquel.firebasestorage.app",
+    messagingSenderId: "951359602793",
+    appId: "1:951359602793:web:33078f39ab4325235262f8",
+    measurementId: "G-C4SWJGSF0B"
+};
   
 
 export const getAllLists = async function(db) {
-    const citiesCol = collection(db, 'convidados');
-    const citySnapshot = await getDocs(citiesCol);
-    console.log('ok');
-    const cityList = citySnapshot.docs.map(doc => doc.data());
-    console.log(cityList);
+    console.log(db)
+    // const citiesCol = collection(db, 'convidados');
+    // const citySnapshot = await getDocs(citiesCol);
+    // const cityList = citySnapshot.docs.map(doc => doc.data());
 }
 
 export const getAllPr = async function() {
@@ -48,7 +41,6 @@ export const getAllPr = async function() {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((documents) => {
         // documents.data() is never undefined for query documents snapshots
-        console.log(documents.id, " => ", documents.data());
         convidadosPr.push({
             "id": documents.id,
             ...documents.data(),

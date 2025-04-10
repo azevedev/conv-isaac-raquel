@@ -6,7 +6,7 @@ margin-bottom: 18px;">
         </h1>
         <p style="padding: 20px 30px; text-align: left;">Será um imenso prazer receber o senhor(a) <b>{{ this.convidadoPr.nome }}</b>{{ this.msg }} em nosso casamento. 
         </p>
-        <p style="padding: 0px 30px; text-align: left;">Gratos, Isaac e Raquel.</p>
+        <p style="padding: 0px 30px; text-align: left;">Gratos, Jean e Raquel.</p>
        
     </div>
 </template>
