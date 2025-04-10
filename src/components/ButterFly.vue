@@ -1,5 +1,5 @@
 <template>
-  <div ref="butterFlyContainer" style="perspective: 100000px; scale: 0.5;" class="butterFlyContainer" :class="{'flip': this.currentShouldFlip}">
+  <div v-if="show" ref="butterFlyContainer" style="perspective: 100000px; scale: 0.5;" class="butterFlyContainer" :class="{'flip': this.currentShouldFlip}">
     <div :style="{ '--wing-color': this.currentColor, '--rnd-flap': this.currentFlapDelay }" class="butterfly" ref="butterFly">
       <div class="wing">
         <div class="bit"></div>
@@ -47,6 +47,7 @@ export default {
       position: { x: this.positionX ||window.innerWidth * (Math.random()), y: this.positionY || window.innerHeight / 2 + window.innerHeight * (Math.random()) },
       velocity: { x: Math.random(), y: Math.random()},
       unit: this.fixed ? '%' : 'px',
+      show: true
     };
   },
   mounted() {
@@ -104,7 +105,7 @@ export default {
 
   // Ensure the butterfly stays within the viewport
   const maxX = window.innerWidth - this.butterFlySize;
-  // const maxY = window.innerHeight - this.butterFlySize;
+  const maxY = -100;
 
   if (this.position.x < 0) this.position.x = 0;
   if (this.position.y < 0 - this.butterFlySize) {
@@ -117,6 +118,8 @@ export default {
   }
   if (this.position.x > maxX) this.position.x = maxX;
   // if (this.position.y > maxY) this.position.y = maxY;
+
+  if(this.position.y < maxY ) this.show = false
 
   // Convert position to percentages
   // const leftPercent = (this.position.x / window.innerWidth) * 100;
@@ -203,7 +206,7 @@ export default {
   100% {
     transform: translateY(0px) scaleX(-1);
     rotate: 80deg;
-    opacity: .8;
+    opacity: 1;
   }
 }
 
@@ -216,7 +219,7 @@ export default {
   100% {
     transform: translateY(0px);
     rotate: -80deg;
-    opacity: .8;
+    opacity: 1;
   }
 }
 
@@ -226,7 +229,7 @@ export default {
     transform: translateY(100px);
   }
   100% {
-    opacity: .8;
+    opacity: 1;
     transform: translateY(0px);
   }
 }
@@ -237,7 +240,7 @@ export default {
     transform: translateY(100px) scaleX(-1);
   }
   100% {
-    opacity: .8;
+    opacity: 1;
     transform: translateY(0px) scaleX(-1);
   }
 }
@@ -264,7 +267,7 @@ export default {
 /* Wings - Restored Working Version */
 .wing {
   background: #888;
-  opacity: 0.7;
+  opacity: 1;
   outline: 1px solid transparent;
   position: absolute;
   top: 0;

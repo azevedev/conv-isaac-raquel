@@ -53,20 +53,20 @@
   ;"/>
 
 
-<RandFlowers :start="5" :left="-40" />
-<RandFlowers :start="20" :left="-40" />
-<RandFlowers :start="35" :left="-40" />
-<RandFlowers :start="50" :left="-40" />
-<RandFlowers :start="65" :left="-40" />
-<RandFlowers :start="80" :left="-40" />
+<RandFlowers :start="5" :left="-45" />
+<RandFlowers :start="20" :left="-45" />
+<RandFlowers :start="35" :left="-45" />
+<RandFlowers :start="50" :left="-45" />
+<RandFlowers :start="65" :left="-45" />
+<RandFlowers :start="80" :left="-45" />
 
 
-<RandFlowers :start="5" :right="-35" flip />
-<RandFlowers :start="20" :right="-35" flip />
-<RandFlowers :start="35" :right="-35" flip />
-<RandFlowers :start="50" :right="-35" flip />
-<RandFlowers :start="65" :right="-35" flip />
-<RandFlowers :start="80" :right="-35" flip />
+<RandFlowers :start="5" :right="-45" flip />
+<RandFlowers :start="20" :right="-45" flip />
+<RandFlowers :start="35" :right="-45" flip />
+<RandFlowers :start="50" :right="-45" flip />
+<RandFlowers :start="65" :right="-45" flip />
+<RandFlowers :start="80" :right="-45" flip />
 
 
 
@@ -177,6 +177,9 @@
     <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;">
       <ButterFly :fixed="true" :positionX="92"  :positionY="87" :side="'right'"  />
       <ButterFly :fixed="true" :positionX="90" :positionY="92" :side="'left'" />
+      <ButterFly />
+      <ButterFly />
+      <ButterFly />
       <ButterFly />
       <ButterFly />
       <ButterFly />
