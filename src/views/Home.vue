@@ -151,17 +151,17 @@
                 ;"/>
     <img src="../assets/letters.png" style="width: 80px; height: 80px;
               margin-bottom: 30px; ">
-    <p style="text-align: center;">
-      <i>"O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. Não maltrata, não procura seus interesses, não se ira facilmente, não guarda rancor. O amor não se alegra com a injustiça, mas se alegra com a verdade. Tudo sofre, tudo crê, tudo espera, tudo suporta."</i>
+    <p style="text-align: center; padding-left: 32px; padding-right: 32px;">
+      <i>"Porque eu sei os planos que tenho para vocês, diz o Senhor, planos de fazê-los prosperar e não de lhes causar dano, planos de dar-lhes esperança e um futuro."</i>
     </p>
-    <p style="text-align: right; padding-right: 24px;">
-    - 1 Coríntios 13:4-7
+    <p style="text-align: right; padding-right: 32px;">
+    - Jeremias 29:11
     </p>
     <br>
     <h1 class="solidaritha">
       Jean <br>E<br> Raquel
     </h1>
-    <div class="time-of-env">
+    <div class="time-of-env" style="padding-left: 28px; padding-right: 28px;">
       <div class="time">
         <p>Convidam para a celebração de seu casamento a ser realizada em</p>
         <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">24 de Maio de 2025</p>
