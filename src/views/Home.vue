@@ -149,22 +149,22 @@
                 opacity: 0;
                 animation-delay: .2s;
                 ;"/>
-    <img src="../assets/letters.png" style="width: 80px; height: 80px;
+    <img src="../assets/letters2.png" style="width: 80px; height: 80px;
               margin-bottom: 30px; ">
     <p style="text-align: center; padding-left: 32px; padding-right: 32px;">
-      <i>"Porque eu sei os planos que tenho para vocês, diz o Senhor, planos de fazê-los prosperar e não de lhes causar dano, planos de dar-lhes esperança e um futuro."</i>
+      <i>"Todo chamado de Deus é uma história de amor única e irrepetível."</i>
     </p>
     <p style="text-align: right; padding-right: 32px;">
-    - Jeremias 29:11
+    - São João Paulo II
     </p>
     <br>
     <h1 class="solidaritha">
-      Jean <br>E<br> Raquel
+      Isaac <br>E<br> Raquel
     </h1>
     <div class="time-of-env" style="padding-left: 28px; padding-right: 28px;">
       <div class="time">
         <p>Convidam para a celebração de seu casamento a ser realizada em</p>
-        <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">24 de Maio de 2025</p>
+        <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">25 de Outubro de 2025</p>
       </div>
       <!-- <div class="intersection"></div> -->
       <!-- <div class="date">

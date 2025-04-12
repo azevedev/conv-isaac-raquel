@@ -8,7 +8,7 @@
             <br>
             <div style="display: flex; justify-content: space-around; flex-direction: column;">
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 42px;">
-                    <a href="https://maps.app.goo.gl/PxxYmfgn2jSfvL6f7" style="margin-bottom: 8px; border-radius: 50%;
+                    <a href="https://maps.app.goo.gl/B6AGmfcQYbgJLiuL9" style="margin-bottom: 8px; border-radius: 50%;
     background: #fffdee;
     box-shadow:  10px 10px 19px #b3b1a7,
                 -10px -10px 19px #ffffff;">
@@ -19,18 +19,18 @@
 
                     <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Celebração religiosa</f> <br>
                       Horário: 18:00 <br>
-                        Local: Igreja matriz nossa Senhora da Conceição, Corrente - PI</p>
+                        Local: Catedral Nossa Senhora do Desterro, Centro Jundiaí - SP</p>
                 </div>
 
                 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <a href="https://maps.app.goo.gl/AKfbRupxtfKUBRLU7" style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/FjZs6ReJBHAKsaes6" style="margin-bottom: 8px;">
                         <div class="round" style="padding-bottom: 10px;">
                             <VectorGlasses :color="'#a97f53'" />
                         </div>
                     </a>
                     <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Recepção</f> <br>
 Horário: Após a celebração religiosa  <br>
-Local: Clube boêmia pub, Corrente - PI</p> 
+Local: Buffet Ki Festa, Av. Comendador Ântonio Borio, 4600 - Caxambu Jundiaí</p> 
                 </div>
 
             </div>

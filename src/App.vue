@@ -12,7 +12,7 @@
     </router-view>
   <div id="nav">
     <div style="min-height: 40px; text-align:center; z-index: 9999; font-size: 10px; width: 100%;">
-      <p v-if="currentRouteName == 'Home'" style="z-index: 9999;">Por favor confirmar presença até dia 26 de Abril de 2025.</p>
+      <p v-if="currentRouteName == 'Home'" style="z-index: 9999;">Por favor confirmar presença até dia 26 de Setembro de 2025.</p>
     </div>
     <div class="links" style="margin-bottom: 20px;">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
