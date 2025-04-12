@@ -149,9 +149,9 @@
                 opacity: 0;
                 animation-delay: .2s;
                 ;"/>
-    <img src="../assets/letters2.png" style="width: 80px; height: 80px;
+    <img src="../assets/letters.png" style="width: 80px; height: 80px;
               margin-bottom: 30px; ">
-    <p style="text-align: center; padding-left: 32px; padding-right: 32px;">
+    <p style="text-align: center; padding-left: 20px; padding-right: 20px;">
       <i>"Todo chamado de Deus é uma história de amor única e irrepetível."</i>
     </p>
     <p style="text-align: right; padding-right: 32px;">
