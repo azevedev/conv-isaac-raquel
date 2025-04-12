@@ -12,13 +12,13 @@
     </router-view>
   <div id="nav">
     <div style="min-height: 40px; text-align:center; z-index: 9999; font-size: 10px; width: 100%;">
-      <p v-if="currentRouteName == 'Home'" style="z-index: 9999;">Por favor confirmar presença até dia 26 de Setembro de 2025.</p>
+      <p v-if="currentRouteName == 'Home'" style="z-index: 9999;">Por favor, confirmar presença até dia 26 de Setembro de 2025.</p>
     </div>
     <div class="links" style="margin-bottom: 20px;">
-      <router-link to="/" v-if="currentRouteName !== 'Home'">Página Inicial</router-link>
-      <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Confirmar Presença</router-link>
-      <router-link to="/local" v-if="currentRouteName !== 'Local'" style="min-width: 100px;">Local do Evento</router-link>
-      <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Lista de Presentes</router-link>
+      <router-link to="/" v-if="currentRouteName !== 'Home'">Início</router-link>
+      <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Presença</router-link>
+      <router-link to="/local" v-if="currentRouteName !== 'Local'" style="min-width: 100px;">Local</router-link>
+      <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Presentes</router-link>
     </div>
   </div>
   
