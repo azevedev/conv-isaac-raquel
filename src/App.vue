@@ -14,7 +14,7 @@
     <div style="min-height: 40px; text-align:center; z-index: 9999; font-size: 12px; width: 100%;">
       <p v-if="currentRouteName == 'Home'" style="z-index: 9999; font-weight: 600;">Por favor, confirmar presença até dia 26 de Setembro de 2025.</p>
     </div>
-    <div class="links" style="margin-bottom: 20px;" :style="{'margin-top': currentRouteName == 'Home' ? '0px' : '60px'}">
+    <div class="links" style="margin-bottom: 20px;" :style="{'margin-top': currentRouteName == 'Home' ? '0px' : '60px', 'margin-top': currentRouteName == 'List' ? '40px' : '60px'}">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Início</router-link>
       <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed') && (currentRouteName !== 'List')">Presença</router-link>
       <router-link to="/local" v-if="currentRouteName !== 'Local' && currentRouteName !== 'List'" style="min-width: 100px;">Local</router-link>
