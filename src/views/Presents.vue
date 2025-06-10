@@ -1,21 +1,22 @@
 <template>
     <div class="content">
-        <h1 class="solidaritha c-s" style="font-size: 32px; margin-top: 28px;
-margin-bottom: 18px;">
+        <h1 class="solidaritha c-s" style="font-size: 32px; margin-top: 16px;
+margin-bottom: 8px;">
         Queridos Amigos e Familiares
         </h1>
         <p class="showIn" style="animation-delay: 0.1s; padding: 0px 30px;">Optamos por não fazer lista de presentes, a sua presença é nosso maior presente! 
-            Mas caso queira nos presentear, aqui está a nossa chave PIX:</p>
-        <div class="info">
-            <p>casamento.isaac.raquel@gmail.com</p>
-            <PixQrcode style="animation-delay: 0.1s; width: 80%;" />
+            <br/><br/>Mas caso queira nos presentear, aqui está a nossa chave PIX:</p>
+        <div class="info showIn">
+            <p style="font-weight: 600; font-size: 18px;">casamento.isaac.raquel@gmail.com</p>
+            <PixQrcode style="animation-delay: 0.2s; width: 85%;" />
             <label>Banco Inter - Raquel Ienne Beteli</label>
         </div>
         <button
         @click="copyPix"
-        class="showIn" style="margin-top: 14px; animation-delay: 0.1s; padding: 14px 22px; background-color: #000; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
-            Copiar chave PIX
+        class="showIn" style="margin-top: 14px; animation-delay: 0.3s; padding: 14px 22px; background-color: #5c452d; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+            Copiar PIX
         </button>
+        <div v-if="copied" class="tooltip">Chave PIX copiada!</div>
         <footer>
     </footer></div>
 </template>
@@ -29,12 +30,16 @@ export default {
     },
     data() {
         return {
-            phoneNumber: '123-123-123'
+            copied: false
         }
     },
     methods: {
         copyPix() {
             navigator.clipboard.writeText('casamento.isaac.raquel@gmail.com');
+            this.copied = true;
+            setTimeout(() => {
+                this.copied = false;
+            }, 2000);
         }
     }
 }
@@ -84,5 +89,26 @@ p{
 }
 h2 {
     margin: 0 0 1.5rem 0;
+}
+
+.tooltip {
+  margin-top: 8px;
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-align: center;
+  animation: fadeInTooltip 0.3s ease-in-out;
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

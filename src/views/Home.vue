@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="fade-move " :src="img2" style="position: fixed;
+    <img class="fade-move " :src="img2" style="position: fixed;  pointer-events: none; 
                 bottom: -70px;
                 left: -20px;
                 width: 150px;
@@ -9,7 +9,7 @@
                 opacity: 0;
                 animation-delay: .3s;
                 ;"/>
-              <img class="fade-move-scale " :src="img2" style="position: fixed;
+              <img class="fade-move-scale " :src="img2" style="position: fixed;  pointer-events: none;
               bottom: -100px;
               left: -90px;
               width: 150px;
@@ -23,7 +23,7 @@
 
 
 <!-- Left Side -->
-<img class="fade-move " :src="flowerRed" style="position: fixed;
+<img class="fade-move " :src="flowerRed" style="position: fixed;  pointer-events: none;
   bottom: -70px;
   left: -20px;
   width: 150px;
@@ -32,7 +32,7 @@
   opacity: 0;
   animation-delay: .3s;
   ;"/>
-<img class="fade-move-scale " :src="flowerYellow" style="position: fixed;
+<img class="fade-move-scale " :src="flowerYellow" style="position: fixed;  pointer-events: none;
    bottom: -40px;
   left: -40px;
   width: 150px;
@@ -42,7 +42,7 @@
   animation-delay: .45s;
   ;"/>
 
-<img class="fade-move-scale " :src="flowerPurple" style="position: fixed;
+<img class="fade-move-scale " :src="flowerPurple" style="position: fixed;  pointer-events: none;
   bottom: -100px;
   left: 0px;
   width: 150px;
@@ -72,7 +72,7 @@
 
 <!-- Right Side -->
 
-<img class="fade-move " :src="flowerRed" style="position: fixed;
+<img class="fade-move " :src="flowerRed" style="position: fixed;  pointer-events: none;
   bottom: -70px;
   right: -20px;
   width: 150px;
@@ -81,7 +81,7 @@
   opacity: 0;
   animation-delay: .3s;
   ;"/>
-<img class="fade-move-scale " :src="flowerYellow" style="position: fixed;
+<img class="fade-move-scale " :src="flowerYellow" style="position: fixed;  pointer-events: none;
   bottom: -40px;
   right: -40px;
   width: 150px;
@@ -91,7 +91,7 @@
   animation-delay: .45s;
   ;"/>
 
-<img class="fade-move-scale " :src="flowerPurple" style="position: fixed;
+<img class="fade-move-scale " :src="flowerPurple" style="position: fixed;  pointer-events: none;
   bottom: -100px;
   right: 0;
   width: 150px;
@@ -104,7 +104,7 @@
 
 
 
-    <img class="fade-move-scale" :src="img2" style="position: fixed;
+    <img class="fade-move-scale" :src="img2" style="position: fixed;  pointer-events: none;
                 bottom: -70px;
                 right: -20px;
                 width: 150px;
@@ -114,7 +114,7 @@
                 opacity: 0;
                 animation-delay: .3s;
                 ;"/>
-              <img class="fade-move" :src="img2" style="position: fixed;
+              <img class="fade-move" :src="img2" style="position: fixed;  pointer-events: none;
               bottom: -100px;
               right: -90px;
               width: 150px;
@@ -128,7 +128,7 @@
 
 
 
-    <img class="fade-p" :src="flowerTop" style="position: fixed;
+    <img class="fade-p" :src="flowerTop" style="position: fixed;  pointer-events: none;
                 top: -70px;
                 left: -55px;
                 width: 200px;
@@ -138,7 +138,7 @@
                 opacity: 0;
                 animation-delay: .2s;
                 "/>
-    <img class="fade-n" :src="flowerTop" style="position: fixed; 
+    <img class="fade-n" :src="flowerTop" style="position: fixed;  pointer-events: none; 
                 top: -70px;
                 right: -55px;
                 width: 200px;
@@ -150,22 +150,22 @@
     <img :src="letters" style="width: 80px; height: 80px;
               margin-bottom: 30px; ">
     <p style="text-align: center; padding-left: 20px; padding-right: 20px;">
-      <i>"Todo chamado de Deus é uma história de amor única e irrepetível."</i>
+      <i style="font-weight: 600;">"Todo chamado de Deus é uma história de amor única e irrepetível."</i>
     </p>
     <p style="text-align: right; padding-right: 32px;">
     - São João Paulo II
     </p>
     <br>
-    <h1 class="solidaritha">
+    <h1 id="secret-trigger" @click="handleClick" class="solidaritha">
       Isaac <br>E<br>Raquel
     </h1>
     <div class="time-of-env" style="padding-left: 28px; padding-right: 28px;">
       <div class="time">
-        <p>Convidam para a celebração de seu casamento a ser realizada em</p>
-        <h1  style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">25 de Outubro de 2025</h1>
+        <p style="font-weight: 500;">Convidam para a celebração de seu casamento a ser realizada em</p>
+        <h1  style="font-size: 26px; margin-top: 20px;">25 de Outubro de 2025</h1>
       </div>
     </div>
-    <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;">
+    <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;  pointer-events: none;">
       <ButterFly :fixed="true" :positionX="92"  :positionY="87" :side="'right'"  />
       <ButterFly :fixed="true" :positionX="90" :positionY="92" :side="'left'" />
       <ButterFly />
@@ -209,7 +209,25 @@ export default {
       flowerPurple,
       img2,
       flowerTop,
-      letters
+      letters,
+      tapCount: 0,
+      tapTimeout: null,
+    }
+  },
+  methods: {
+    handleClick() {
+      this.tapCount++;
+      console.log('tapCount: ', this.tapCount);
+
+      clearTimeout(this.tapTimeout);
+
+      this.tapTimeout = setTimeout(() => {
+        this.tapCount = 0;
+      }, 1000);
+
+      if (this.tapCount >= 5) {
+        window.location.href = '/lista'; // or use this.$router.push('/lista') if using Vue Router
+      }
     }
   }
 }

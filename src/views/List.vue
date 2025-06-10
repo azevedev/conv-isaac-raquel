@@ -1,7 +1,7 @@
 <template>
-    <div class="content">
+    <div class="content" style="width: 100%;">
         <h1 style="font-size: 32px; margin-top: 28px;
-margin-bottom: 18px;">
+margin-bottom: 18px;" class="solidaritha">
         Presenças Já Confirmadas
         </h1>
         <p>Total: {{ total_amount }}</p>
@@ -9,15 +9,12 @@ margin-bottom: 18px;">
             <ul class="ul-prin">
                 <li v-for="(cnvPr, indexPr) in convidadosPr" :key="indexPr" class="li-prin">
                     <label type="text" ><b>{{cnvPr.nome}}</b></label> <br>
-                    <p v-if="cnvPr.convidados.length">Membros:</p>
                     <ul class="ul-sec">
                         <li v-for="(cnv, index) in cnvPr.convidados" :key="index" class="li-sec">
                             <label type="text" >- {{cnv.nome}}</label> <br>
                         </li>
                     </ul>
-                    <span @click="deleteCnv(cnvPr.id, indexPr)" class="material-symbols-sharp rmv">
-                        delete_forever
-                    </span>
+                    <VectorDelete @click="deleteCnv(cnvPr.id, indexPr)" width="24px" height="24px" class="rmv" />
                 </li>
             </ul>
         </div>
@@ -27,9 +24,12 @@ margin-bottom: 18px;">
 
 <script>
 import {getAllPr, getAllCnv, deleteAllCnv} from '../main';
-
+import VectorDelete from '../components/VectorDelete.vue';
 export default {
     name: 'List',
+    components: {
+        VectorDelete
+    },
     data() {
         return {
         }
@@ -60,6 +60,7 @@ export default {
             this.convidadosPr.splice(index,1)
             console.log(this.convidadosPr);
             this.$forceUpdate();
+            this.total_amount--;
         }
     }
 }
@@ -68,13 +69,15 @@ export default {
 .rmv{
     cursor: pointer;
     position: absolute;
-    bottom: 32px;
-    right: 8px;
+    top: 18px;
+    right: 16px;
     color: brown;
 }
 .cnv{
     overflow-y: scroll;
     height: 65vh;
+    padding: 12px 80px;
+    width: 100%;
 }
 
 .ul-prin{
@@ -86,12 +89,15 @@ export default {
     flex-direction: column;
     font-size: 14px;
     padding: 8px;
+
 }
 
 .li-prin{
-    background: rgba(238, 238, 238, 0.4);
+    background: rgb(255, 255, 255);
+    box-shadow:  10px 10px 19px #b3b1a7,
+                -10px -10px 19px #ffffff;
     border-radius: 22px;
-    padding: 14px;
+    padding: 14px 14px 14px 24px;
     margin-bottom: 14px;
     position: relative;
     min-height: 75px
@@ -104,7 +110,7 @@ export default {
     justify-content: left;
     text-align: left;
     flex-direction: column;
-    padding: 8px;
+    padding: 12px;
     padding-top: 2px;
 }
 

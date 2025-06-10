@@ -7,28 +7,28 @@
         <div id="content">
             <br>
             <div style="display: flex; justify-content: space-around; flex-direction: column;">
-                <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 42px;">
+                <div class="showIn" style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 42px; animation-delay: 0.1s;">
                     <a href="https://maps.app.goo.gl/B6AGmfcQYbgJLiuL9" style="margin-bottom: 8px; border-radius: 50%;
     background: #fffdee;
     box-shadow:  10px 10px 19px #b3b1a7,
                 -10px -10px 19px #ffffff;">
-                       <div class="round" >
+                       <div class="round showIn" style="animation-delay: 0.1s;">
                             <VectorChurch :color="'#a97f53'" />
                         </div>
                     </a>
 
-                    <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Celebração religiosa</f> <br>
+                    <p class="showIn" style="text-align: center; font-size: 16px; animation-delay: 0.2s;"><f style="font-size: 22px;">Celebração religiosa</f> <br>
                       Horário: 18:00 <br>
                         Local: Catedral Nossa Senhora do Desterro, Centro Jundiaí - SP</p>
                 </div>
 
-                <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div class="showIn" style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; animation-delay: 0.2s;">
                     <a href="https://maps.app.goo.gl/FjZs6ReJBHAKsaes6" style="margin-bottom: 8px;">
-                        <div class="round" style="padding-bottom: 10px;">
+                        <div class="round showIn" style="padding-bottom: 10px; animation-delay: 0.3s;">
                             <VectorGlasses :color="'#a97f53'" />
                         </div>
                     </a>
-                    <p style="text-align: center; font-size: 16px;"><f style="font-size: 22px;">Recepção</f> <br>
+                    <p class="showIn" style="text-align: center; font-size: 16px; animation-delay: 0.4s;"><f style="font-size: 22px;">Recepção</f> <br>
 Horário: Após a celebração religiosa  <br>
 Local: Buffet Ki Festa, Av. Comendador Ântonio Borio, 4600 - Caxambu Jundiaí</p> 
                 </div>
@@ -73,6 +73,23 @@ export default {
     box-shadow:  10px 10px 19px #b3b1a7,
                 -10px -10px 19px #ffffff;
 
+}
+
+.showIn{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn forwards 1s;
+}
+
+@keyframes fadeIn {
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .round:hover{

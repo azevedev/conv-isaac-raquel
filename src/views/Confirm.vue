@@ -1,32 +1,34 @@
 <template>
     <div class="content">
-        <h1 class="solidaritha c-s">
+        <h1 class="solidaritha c-s showIn" style="animation-delay: 0.1s;">
         Confirmar Presen<ffont style="font-size: 22px;">ç</ffont>a
         </h1>
         <div id="content">
-                <label for="convidado_principal">Convidado Principal</label>
-                <input name="convidado_principal" id="convidado_principal" placeholder="Nome Completo" class="input"/>
+                <label for="convidado_principal" class="showIn" style="animation-delay: 0.2s;">Seu nome completo</label>
+                <input name="convidado_principal" id="convidado_principal" placeholder="Nome Completo" class="input showIn" style="animation-delay: 0.3s;"/>
 
                 <ul>
-                <li v-for="(input, index) in inputs" :key="index" style="position: relative;">
-                    <label type="text" >Convidado {{ index + 1 }}</label> <br>
-                    <input type="text" v-model="input.value" class="input" name="convidados" placeholder="Nome completo">
-                    
-                    <VectorDelete @click="deleteRow(index)" width="24px" height="24px" class="rmv" />
+                <li v-for="(input, index) in inputs" :key="index" >
+                    <div class="showIn" style="animation-delay: 0.1s; position: relative;">
+                        <label type="text" >Convidado {{ index + 1 }}</label> <br>
+                        <input type="text" v-model="input.value" class="input" name="convidados" placeholder="Nome completo">
+                        
+                        <VectorDelete @click="deleteRow(index)" width="24px" height="24px" class="rmv" />
+                    </div>
                 </li>
                 </ul>
 
         </div>
-        <div v-if="total <= 5">
+        <div v-if="false">
             <div style="width: 100%; display: flex; flex-direction: column;">
                     <button type="submit" @click="handleSubmit">
-                        <VectorPlus width="68px" height="68px" color="#a97f53" />
+                        <p style="font-size: 16px;">Adicionar convidado</p>
+                        <VectorPlus width="28px" height="28px" color="#a97f53" />
                     </button>
-                    <p style="font-size: 16px;">Adicionar convidado</p>
             </div>
         </div>
 
-        <div v-if="total > 0" style="
+        <div style="
     transition: all 2s;">
             <div style="width: 100%; display: flex; flex-direction: column;">
                     <button type="submit" @click="sendData" class="send">
@@ -126,14 +128,14 @@ text-align: left;
 button {
     border: 1px solid #bbb;
     transition: all 0.3s ease-in-out;
-    padding: 8px;
-    border-radius: 50%; 
+    padding: 4px;
+    border-radius: 18px;
     background: white;
-    width: 90px;
-    height: 90px;
+    width: 100%;
     display: flex;
     align-self: center;
     justify-content: center;
+    gap: 10px;
     align-items: center;
     margin-bottom: 8px;
     cursor: pointer;
@@ -202,5 +204,22 @@ right: 8px;
 }
 h2 {
     margin: 0 0 1.5rem 0;
+}
+
+.showIn{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn forwards 1s;
+}
+
+@keyframes fadeIn { 
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 </style>

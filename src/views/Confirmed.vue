@@ -18,7 +18,11 @@ export default {
     name: 'Confirmed',
     async setup() {
         const route = useRoute();
-        console.log('Params: ', route.query.id);
+        if(!route.query.id){
+            // redirect to home with js
+            window.location.href = '/';
+            return;
+        }
         const convidadoPr = await getPr(route.query.id);
         
         convidadoPr.convidados = await getAllCnv(convidadoPr.id)
