@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="fade-move " src="../assets/img2.png" style="position: fixed;
+    <img class="fade-move " :src="img2" style="position: fixed;
                 bottom: -70px;
                 left: -20px;
                 width: 150px;
@@ -9,7 +9,7 @@
                 opacity: 0;
                 animation-delay: .3s;
                 ;"/>
-              <img class="fade-move-scale " src="../assets/img2.png" style="position: fixed;
+              <img class="fade-move-scale " :src="img2" style="position: fixed;
               bottom: -100px;
               left: -90px;
               width: 150px;
@@ -23,7 +23,7 @@
 
 
 <!-- Left Side -->
-<img class="fade-move " src="../assets/flower-red.png" style="position: fixed;
+<img class="fade-move " :src="flowerRed" style="position: fixed;
   bottom: -70px;
   left: -20px;
   width: 150px;
@@ -32,7 +32,7 @@
   opacity: 0;
   animation-delay: .3s;
   ;"/>
-<img class="fade-move-scale " src="../assets/flower-yellow.png" style="position: fixed;
+<img class="fade-move-scale " :src="flowerYellow" style="position: fixed;
    bottom: -40px;
   left: -40px;
   width: 150px;
@@ -42,7 +42,7 @@
   animation-delay: .45s;
   ;"/>
 
-<img class="fade-move-scale " src="../assets/flower-purple.png" style="position: fixed;
+<img class="fade-move-scale " :src="flowerPurple" style="position: fixed;
   bottom: -100px;
   left: 0px;
   width: 150px;
@@ -70,11 +70,9 @@
 
 
 
-
-
 <!-- Right Side -->
 
-<img class="fade-move " src="../assets/flower-red.png" style="position: fixed;
+<img class="fade-move " :src="flowerRed" style="position: fixed;
   bottom: -70px;
   right: -20px;
   width: 150px;
@@ -83,7 +81,7 @@
   opacity: 0;
   animation-delay: .3s;
   ;"/>
-<img class="fade-move-scale " src="../assets/flower-yellow.png" style="position: fixed;
+<img class="fade-move-scale " :src="flowerYellow" style="position: fixed;
   bottom: -40px;
   right: -40px;
   width: 150px;
@@ -93,7 +91,7 @@
   animation-delay: .45s;
   ;"/>
 
-<img class="fade-move-scale " src="../assets/flower-purple.png" style="position: fixed;
+<img class="fade-move-scale " :src="flowerPurple" style="position: fixed;
   bottom: -100px;
   right: 0;
   width: 150px;
@@ -106,7 +104,7 @@
 
 
 
-    <img class="fade-move-scale" src="../assets/img2.png" style="position: fixed;
+    <img class="fade-move-scale" :src="img2" style="position: fixed;
                 bottom: -70px;
                 right: -20px;
                 width: 150px;
@@ -116,7 +114,7 @@
                 opacity: 0;
                 animation-delay: .3s;
                 ;"/>
-              <img class="fade-move" src="../assets/img2.png" style="position: fixed;
+              <img class="fade-move" :src="img2" style="position: fixed;
               bottom: -100px;
               right: -90px;
               width: 150px;
@@ -130,7 +128,7 @@
 
 
 
-    <img class="fade-p" src="../assets/flower.png" style="position: fixed;
+    <img class="fade-p" :src="flowerTop" style="position: fixed;
                 top: -70px;
                 left: -55px;
                 width: 200px;
@@ -140,7 +138,7 @@
                 opacity: 0;
                 animation-delay: .2s;
                 "/>
-    <img class="fade-n" src="../assets/flower.png" style="position: fixed; 
+    <img class="fade-n" :src="flowerTop" style="position: fixed; 
                 top: -70px;
                 right: -55px;
                 width: 200px;
@@ -149,7 +147,7 @@
                 opacity: 0;
                 animation-delay: .2s;
                 ;"/>
-    <img src="../assets/letters.png" style="width: 80px; height: 80px;
+    <img :src="letters" style="width: 80px; height: 80px;
               margin-bottom: 30px; ">
     <p style="text-align: center; padding-left: 20px; padding-right: 20px;">
       <i>"Todo chamado de Deus é uma história de amor única e irrepetível."</i>
@@ -159,20 +157,13 @@
     </p>
     <br>
     <h1 class="solidaritha">
-      Isaac <br>E<br> Raquel
+      Isaac <br>E<br>Raquel
     </h1>
     <div class="time-of-env" style="padding-left: 28px; padding-right: 28px;">
       <div class="time">
         <p>Convidam para a celebração de seu casamento a ser realizada em</p>
-        <p style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">25 de Outubro de 2025</p>
+        <h1  style="font-size: 22px; margin-top: 20px; text-transform: uppercase;">25 de Outubro de 2025</h1>
       </div>
-      <!-- <div class="intersection"></div> -->
-      <!-- <div class="date">
-        <p>Sábado</p>
-        <p style="height: 25px;"></p>
-        <p>16:00</p>
-        <p>Horas</p>
-      </div> -->
     </div>
     <div style="position:fixed; top:0; left:0; width: 100%; height: 100%; background-color: transparent;">
       <ButterFly :fixed="true" :positionX="92"  :positionY="87" :side="'right'"  />
@@ -198,6 +189,12 @@
 // @ is an alias to /src
 import ButterFly from '@/components/ButterFly.vue';
 import RandFlowers from '../components/RandFlowers.vue';
+import flowerRed from '@/assets/flower-red.png';
+import flowerYellow from '@/assets/flower-yellow.png';
+import flowerPurple from '@/assets/flower-purple.png';
+import img2 from '@/assets/img2.png';
+import flowerTop from '@/assets/flower.png';
+import letters from '@/assets/letters.png';
 
 export default {
   name: 'Home',
@@ -205,6 +202,16 @@ export default {
         ButterFly,
         RandFlowers
   },
+  data() {
+    return {
+      flowerRed,
+      flowerYellow,
+      flowerPurple,
+      img2,
+      flowerTop,
+      letters
+    }
+  }
 }
 </script>
 

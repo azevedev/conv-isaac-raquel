@@ -4,35 +4,37 @@
 margin-bottom: 18px;">
         Queridos Amigos e Familiares
         </h1>
-        <p class="showIn" style="animation-delay: 0.1s; padding: 20px 30px;">Optamos por não fazer lista de presentes, a sua presença é nosso maior presente! 
-            Mas caso queira nos presentear, sugerimos uma quantia através de depósito:</p>
+        <p class="showIn" style="animation-delay: 0.1s; padding: 0px 30px;">Optamos por não fazer lista de presentes, a sua presença é nosso maior presente! 
+            Mas caso queira nos presentear, aqui está a nossa chave PIX:</p>
         <div class="info">
-            <div style="width: 100%; display: flex; justify-content: center; flex-direction: column;">
-                <div class="card" style="flex-direction: row; justify-content: space-between; padding: 10px 40px; animation-delay: 0.2s;">
-                    <p>🥰 R$ 100,00</p>
-                    <p>❤️ R$ 200,00</p>
-                    <p>😍 R$ 300,00</p>
-                </div>
-                <div class="card" style="margin-bottom: 50px; flex-direction: row; animation-delay: 0.3s;">
-                 <p>🥰❤️😍 R$ +300,00</p>
-                </div>
-
-                <div class="card" style="animation-delay: 0.4s; font-size: 22px;">
-                    <p><b>PIX:</b> (89) 9 9999-1122 </p>
-                    <p><b>Depósito:</b> 1234-1234-1234-1234</p>
-                </div>
-            </div>
+            <p>casamento.isaac.raquel@gmail.com</p>
+            <PixQrcode style="animation-delay: 0.1s; width: 80%;" />
+            <label>Banco Inter - Raquel Ienne Beteli</label>
         </div>
+        <button
+        @click="copyPix"
+        class="showIn" style="margin-top: 14px; animation-delay: 0.1s; padding: 14px 22px; background-color: #000; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+            Copiar chave PIX
+        </button>
         <footer>
     </footer></div>
 </template>
 
 <script>
+import PixQrcode from '../components/PixQrcode.vue';
 export default {
     name: 'Presents',
+    components: {
+        PixQrcode
+    },
     data() {
         return {
             phoneNumber: '123-123-123'
+        }
+    },
+    methods: {
+        copyPix() {
+            navigator.clipboard.writeText('casamento.isaac.raquel@gmail.com');
         }
     }
 }
@@ -44,8 +46,9 @@ p{
 }
 .info{
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    
+    align-items: center;
 }
 .showIn{
     opacity: 0;
