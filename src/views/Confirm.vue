@@ -83,15 +83,11 @@ export default {
     async sendData(){
         const principal = document.getElementById('convidado_principal');
         const convidados = document.getElementsByName('convidados');
-        console.log("sending...");
-        console.log(principal);
-        console.log(convidados);
         if(principal.value.trim() == ""){ return;}
         const principalJson = {
             'nome': this.capitalize(principal.value),
             'principal': true,
         };
-        console.log(principalJson)
 
         const ID = await sendList(principalJson);
         const convidadosJson = []
@@ -105,13 +101,9 @@ export default {
             convidadosJson.push(document.value);
             await sendList(json);
         }
-        console.log('done!');
         this.total = 0,
         principal.value = "";
         this.inputs = [],
-        console.log("enviando...");
-        console.log(principal.value)
-        console.log(convidadosJson)
         this.$router.push({ name: 'Confirmed', query: { id: ID } })
     }
   }

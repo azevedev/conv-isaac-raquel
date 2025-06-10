@@ -217,7 +217,6 @@ export default {
   methods: {
     handleClick() {
       this.tapCount++;
-      console.log('tapCount: ', this.tapCount);
 
       clearTimeout(this.tapTimeout);
 

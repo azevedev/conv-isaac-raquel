@@ -16,9 +16,9 @@
     </div>
     <div class="links" style="margin-bottom: 20px;" :style="{'margin-top': currentRouteName == 'Home' ? '0px' : '60px'}">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Início</router-link>
-      <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed')">Presença</router-link>
-      <router-link to="/local" v-if="currentRouteName !== 'Local'" style="min-width: 100px;">Local</router-link>
-      <router-link to="/presents" v-if="currentRouteName !== 'Presents'">Presentes</router-link>
+      <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed') && (currentRouteName !== 'List')">Presença</router-link>
+      <router-link to="/local" v-if="currentRouteName !== 'Local' && currentRouteName !== 'List'" style="min-width: 100px;">Local</router-link>
+      <router-link to="/presents" v-if="currentRouteName !== 'Presents' && currentRouteName !== 'List'">Presentes</router-link>
     </div>
   </div>
   

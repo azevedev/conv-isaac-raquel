@@ -27,8 +27,6 @@ export default {
         
         convidadoPr.convidados = await getAllCnv(convidadoPr.id)
 
-        console.log("show names");
-        console.log(convidadoPr);
         let msg = "";
         if(convidadoPr.convidados.length != 0){
             msg = " e sua família ";
@@ -44,8 +42,6 @@ export default {
             else
                 msg +=  ' e ' + convidadoPr.convidados[index].nome; 
         }
-        console.log('msg')
-        console.log(msg)
         return {
             convidadoPr,
             msg

@@ -5,6 +5,7 @@ margin-bottom: 18px;" class="solidaritha">
         Presenças Já Confirmadas
         </h1>
         <p>Total: {{ total_amount }}</p>
+        <button style="margin-top: 4px; margin-bottom: 4px; padding: 12px 16px; border-radius: 12px; border: 1px solid #ddd; background: #a97f53; color: white; cursor: pointer;" @click="exportToExcel">Exportar para Excel</button>
         <div class="cnv">
             <ul class="ul-prin">
                 <li v-for="(cnvPr, indexPr) in convidadosPr" :key="indexPr" class="li-prin">
@@ -25,6 +26,7 @@ margin-bottom: 18px;" class="solidaritha">
 <script>
 import {getAllPr, getAllCnv, deleteAllCnv} from '../main';
 import VectorDelete from '../components/VectorDelete.vue';
+import ExcelJS from 'exceljs';
 export default {
     name: 'List',
     components: {
@@ -56,12 +58,39 @@ export default {
     methods: {
         async deleteCnv(id, index) {
             await deleteAllCnv(id);
-            console.log(this.convidadosPr);
             this.convidadosPr.splice(index,1)
-            console.log(this.convidadosPr);
             this.$forceUpdate();
             this.total_amount--;
-        }
+        },
+        async exportToExcel() {
+            const excel = new ExcelJS.Workbook();
+            const worksheet = excel.addWorksheet('Presenças');
+
+            worksheet.columns = [
+                { header: 'Nome', key: 'nome', width: 35 },
+                // { header: 'Convidados', key: 'convidados', width: 50 },
+            ];
+
+            // Flatten the data
+            const rows = this.convidadosPr.map((pr) => {
+                return {
+                nome: pr.nome,
+                // convidados: pr.convidados.map(cnv => cnv.nome).join(', ')
+                };
+            });
+
+            worksheet.addRows(rows);
+
+            // In browser environment, use a Blob to trigger download
+            const buffer = await excel.xlsx.writeBuffer();
+
+            const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'presencas.xlsx';
+            link.click();
+            URL.revokeObjectURL(link.href);
+            }
     }
 }
 </script>

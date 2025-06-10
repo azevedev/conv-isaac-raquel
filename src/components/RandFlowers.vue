@@ -67,7 +67,6 @@ export default {
     onMounted(() => {
       // Shuffle the flowers array
       shuffledFlowers.value = [...flowers].sort(() => Math.random() - 0.5);
-      console.log(shuffledFlowers.value)
     });
 
     return {

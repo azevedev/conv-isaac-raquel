@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "core-js": "^3.6.5",
+        "exceljs": "^4.4.0",
         "firebase": "^9.9.3",
         "tar": "^6.1.11",
         "vue": "^3.0.0",

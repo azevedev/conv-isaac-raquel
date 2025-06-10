@@ -26,14 +26,6 @@ const firebaseConfig = {
     appId: "1:929177031263:web:9677dfb646b72c7fb801ea"
   };
   
-
-export const getAllLists = async function(db) {
-    console.log(db)
-    // const citiesCol = collection(db, 'convidados');
-    // const citySnapshot = await getDocs(citiesCol);
-    // const cityList = citySnapshot.docs.map(doc => doc.data());
-}
-
 export const getAllPr = async function() {
     const q = query(collection(db, "convidados"), where("principal", "==", true));
     const convidadosPr = [];
@@ -53,14 +45,12 @@ export const getPr = async function(id) {
     const docRef = doc(db, "convidados", id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
         return {
             id: id,
             ...docSnap.data(),
         }
     } else {
         // doc.data() will be undefined in this case
-        console.log("No such document!");
         return null;
     }
 
@@ -73,7 +63,6 @@ export const getAllCnv = async function(id) {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((documents) => {
         // documents.data() is never undefined for query documents snapshots
-        console.log(documents.id, " => ", documents.data());
         convidadosCnv.push({
             "id": documents.id,
             ...documents.data(),
@@ -88,7 +77,6 @@ export const deleteAllCnv = async function(id) {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((documents) => {
         // documents.data() is never undefined for query documents snapshots
-        console.log(documents.id, " => ", documents.data());
         deleteDoc(doc(db, "convidados", documents.id));
     });
 
@@ -104,7 +92,6 @@ const db = getFirestore(app);
 
 export const sendList = async function(data) {
     const ref = await addDoc(collection(db, "convidados"), data);
-    console.log("Document written with ID: ", ref.id);
     return ref.id;
 }
 
