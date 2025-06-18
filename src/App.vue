@@ -19,7 +19,7 @@
     <div class="links" style="margin-bottom: 20px;" :style="{'margin-top': currentRouteName == 'Home' ? '0px' : '60px', 'margin-top': currentRouteName == 'List' ? '40px' : '60px'}">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Início</router-link>
       <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed') && (currentRouteName !== 'List')">Presença</router-link>
-      <router-link to="/local" v-if="currentRouteName !== 'Local' && currentRouteName !== 'List'" style="min-width: 100px;">Local</router-link>
+      <router-link to="/local" v-if="currentRouteName !== 'Local' && currentRouteName !== 'List'">Local</router-link>
       <router-link to="/presents" v-if="currentRouteName !== 'Presents' && currentRouteName !== 'List'">Presentes</router-link>
     </div>
   </div>
@@ -97,7 +97,7 @@ export default {
 
   #nav {
     position: fixed;
-    bottom: 0;
+    bottom: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -124,8 +124,10 @@ export default {
     font-weight: bold;
     font-size: 12px;
     margin: 0px 8px;
-    width: 100px;
-    height: 48px;
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
