@@ -11,8 +11,10 @@
       </transition>
     </router-view>
   <div id="nav">
-    <div style="min-height: 40px; text-align:center; z-index: 9999; font-size: 12px; width: 100%;">
-      <p v-if="currentRouteName == 'Home'" style="z-index: 9999; font-weight: 600;">Por favor, confirmar presença até dia 26 de Setembro de 2025.</p>
+    <div v-if="currentRouteName == 'Home'" style="min-height: 40px; text-align:center; z-index: 9999; font-size: 12px; width: 70%;">
+      <p style="z-index: 9999; font-weight: 600; background-color: #fffdee; padding: 8px 4px !important; border-radius: 10px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
+        Por favor, confirme sua presença até dia 26 de Setembro de 2025.
+      </p>
     </div>
     <div class="links" style="margin-bottom: 20px;" :style="{'margin-top': currentRouteName == 'Home' ? '0px' : '60px', 'margin-top': currentRouteName == 'List' ? '40px' : '60px'}">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Início</router-link>
@@ -94,16 +96,19 @@ export default {
   }
 
   #nav {
+    position: fixed;
+    bottom: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     padding-top: 0;
-    z-index: 9999;
-    width: 70%;
+    z-index: 999;
+    width: 100%;
   }
 
   .links{
+    margin-top: auto;
     padding: 12px;
     display: flex;
     padding-top: 0px;
@@ -126,8 +131,8 @@ export default {
     justify-content: center;
     border-radius: 55px;
     background: #fffdee;
-    box-shadow:  10px 10px 19px #b3b1a7,
-                -10px -10px 19px #ffffff;
+    box-shadow:  8px 8px 16px #b3b1a7,
+                -8px -8px 16px #fffdee;
     text-align: center;
     transition: all .2s ease-in-out;
   }
@@ -145,9 +150,9 @@ export default {
 
   .view{
     max-width: 500px;
-    height: 75vh;
-    min-height: 75vh;
-    max-height: 75vh;
+    height: 75dvh;
+    min-height: 75dvh;
+    max-height: 75dvh;
   }
 
   .fade-enter-from,

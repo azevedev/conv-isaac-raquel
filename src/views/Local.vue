@@ -18,7 +18,7 @@
                     </a>
 
                     <p class="showIn" style="text-align: center; font-size: 16px; animation-delay: 0.2s;"><f style="font-size: 22px;">Celebração religiosa</f> <br>
-                      Horário: 18:00 <br>
+                      Horário: 13:30h <br>
                         Local: Catedral Nossa Senhora do Desterro, Centro Jundiaí - SP</p>
                 </div>
 
@@ -71,7 +71,7 @@ export default {
     transition: all .2s ease-in-out;
     background: #fffdee;
     box-shadow:  10px 10px 19px #b3b1a7,
-                -10px -10px 19px #ffffff;
+                -10px -10px 19px #fffdee;
 
 }
 

@@ -13,7 +13,7 @@ margin-bottom: 8px;">
         </div>
         <button
         @click="copyPix"
-        class="showIn" style="margin-top: 14px; animation-delay: 0.3s; padding: 14px 22px; background-color: #5c452d; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+        class="showIn" style="min-width: 112px; min-height: 42px; max-width: 112px; max-height: 42px; z-index: 9999999999 !important; margin-top: 14px; animation-delay: 0.3s; padding: 14px 22px; background-color: #5c452d; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
             Copiar PIX
         </button>
         <div v-if="copied" class="tooltip">Chave PIX copiada!</div>
@@ -48,6 +48,9 @@ export default {
 
 p{
     margin-bottom: 4px;
+}
+.content{
+    min-height: 100dvh;
 }
 .info{
     display: flex;

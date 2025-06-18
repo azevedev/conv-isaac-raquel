@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" v-if="currentRouteName == 'Home'">
     <img class="fade-move " :src="img2" style="position: fixed;  pointer-events: none; 
                 bottom: -70px;
                 left: -20px;
@@ -214,6 +214,11 @@ export default {
       tapTimeout: null,
     }
   },
+  computed: {
+    currentRouteName() {
+        return this.$route.name;
+    },
+  },
   methods: {
     handleClick() {
       this.tapCount++;
@@ -236,6 +241,7 @@ export default {
   .home {
     padding: 20px;
     padding-top: 35px;
+    height: 100dvh;
   }
 .fade-p{
     animation: fade-p forwards 3s;
