@@ -128,7 +128,6 @@ export default {
   // Apply position
   this.butterFlyElement.style.left = `${this.position.x}${this.unit}`;
   this.butterFlyElement.style.top = `${this.position.y}${this.unit}`;
-  // console.log('this.position.y', this.position.y)
   // Keep animating
   if (!this.isFixed) {
     requestAnimationFrame(updatePosition);
