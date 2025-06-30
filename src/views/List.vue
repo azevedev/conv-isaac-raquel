@@ -1,5 +1,5 @@
 <template>
-    <div class="content" style="width: 100%;">
+    <div class="content" style="width: 100%; min-height: calc(100dvh - 50px);">
         <h1 style="font-size: 32px; margin-top: 28px;
 margin-bottom: 18px;" class="solidaritha">
         Presenças Já Confirmadas
