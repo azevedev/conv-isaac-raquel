@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content" style="min-height: calc(100dvh - 50px);">
       <h1 class="solidaritha c-s">
         Localiza<ffont style="font-size: 18px; font-weight: bold;">çã</ffont>o
         </h1>

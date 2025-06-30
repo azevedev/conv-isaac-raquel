@@ -11,12 +11,12 @@
       </transition>
     </router-view>
   <div id="nav">
-    <div v-if="currentRouteName == 'Home'" style="min-height: 40px; text-align:center; z-index: 9999; font-size: 12px; width: 70%;">
+    <div v-if="currentRouteName == 'Home'" style="text-align:center; z-index: 9999; font-size: 12px; width: 70%;">
       <p style="z-index: 9999; font-weight: 600; background-color: #fffdee; padding: 8px 4px !important; border-radius: 10px; box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
         Por favor, confirme sua presença até dia 26 de Setembro de 2025.
       </p>
     </div>
-    <div class="links" style="margin-bottom: 20px;" :style="{'margin-top': currentRouteName == 'Home' ? '0px' : '60px', 'margin-top': currentRouteName == 'List' ? '40px' : '60px'}">
+    <div class="links">
       <router-link to="/" v-if="currentRouteName !== 'Home'">Início</router-link>
       <router-link to="/confirm" v-if="(currentRouteName !== 'Confirm') && (currentRouteName !== 'Confirmed') && (currentRouteName !== 'List')">Presença</router-link>
       <router-link to="/local" v-if="currentRouteName !== 'Local' && currentRouteName !== 'List'">Local</router-link>
@@ -96,15 +96,13 @@ export default {
   }
 
   #nav {
-    position: fixed;
-    bottom: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    padding-top: 0;
     z-index: 999;
     width: 100%;
+    gap: 24px;
   }
 
   .links{

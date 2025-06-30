@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-if="currentRouteName == 'Home'">
+  <div class="home" v-if="currentRouteName == 'Home'" style="min-height: calc(100dvh - 118px);">
     <img class="fade-move " :src="img2" style="position: fixed;  pointer-events: none; 
                 bottom: -70px;
                 left: -20px;

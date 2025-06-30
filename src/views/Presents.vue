@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content" style="min-height: calc(100dvh - 50px);">
         <h1 class="solidaritha c-s" style="font-size: 32px; margin-top: 16px;
 margin-bottom: 8px;">
         Queridos Amigos e Familiares

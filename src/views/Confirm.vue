@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content" style="min-height: calc(100dvh - 50px);">
         <h1 class="solidaritha c-s showIn" style="animation-delay: 0.1s;">
         Confirmar Presen<ffont style="font-size: 22px;">ç</ffont>a
         </h1>
