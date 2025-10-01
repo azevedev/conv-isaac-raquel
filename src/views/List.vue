@@ -8,10 +8,10 @@ margin-bottom: 18px;" class="solidaritha">
         <button style="margin-top: 4px; margin-bottom: 4px; padding: 12px 16px; border-radius: 12px; border: 1px solid #ddd; background: #a97f53; color: white; cursor: pointer;" @click="exportToExcel">Exportar para Excel</button>
         <div class="cnv">
             <ul class="ul-prin">
-                <li v-for="(cnvPr, indexPr) in convidadosPr" :key="indexPr" class="li-prin">
+                <li v-for="(cnvPr, indexPr) in convidadosPr.sort((a, b) => a.nome.localeCompare(b.nome))" :key="indexPr" class="li-prin">
                     <label type="text" ><b>{{cnvPr.nome}}</b></label> <br>
                     <ul class="ul-sec">
-                        <li v-for="(cnv, index) in cnvPr.convidados" :key="index" class="li-sec">
+                        <li v-for="(cnv, index) in cnvPr.convidados.sort((a, b) => a.nome.localeCompare(b.nome))" :key="index" class="li-sec">
                             <label type="text" >- {{cnv.nome}}</label> <br>
                         </li>
                     </ul>
