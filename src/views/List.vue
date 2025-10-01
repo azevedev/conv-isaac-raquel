@@ -5,8 +5,12 @@ margin-bottom: 18px;" class="solidaritha">
         Presenças Já Confirmadas
         </h1>
         <p>Total: {{ total_amount }}</p>
-        <button style="margin-top: 4px; margin-bottom: 4px; padding: 12px 16px; border-radius: 12px; border: 1px solid #ddd; background: #a97f53; color: white; cursor: pointer;" @click="exportToExcel">Exportar para Excel</button>
-        <div class="cnv">
+        <button :disabled="loading" class="export-btn" style="margin-top: 4px; margin-bottom: 4px; padding: 12px 16px; border-radius: 12px; border: 1px solid #ddd; background: #a97f53; color: white; cursor: pointer;" @click="exportToExcel">Exportar para Excel</button>
+        <div v-if="loading" class="loading">
+            <div class="spinner"></div>
+            <span>Carregando presenças...</span>
+        </div>
+        <div v-else class="cnv">
             <ul class="ul-prin">
                 <li v-for="(cnvPr, indexPr) in convidadosPr.sort((a, b) => a.nome.localeCompare(b.nome))" :key="indexPr" class="li-prin">
                     <label type="text" ><b>{{cnvPr.nome}}</b></label> <br>
@@ -34,26 +38,22 @@ export default {
     },
     data() {
         return {
+            loading: true,
+            total_amount: 0,
+            convidadosPr: [],
         }
     },
-    async setup() {
-        const convidadosPr = await getAllPr()
-        let total_amount = 0;
-        for await (const cnv of convidadosPr){
-            total_amount++;
-            cnv.convidados = await getAllCnv(cnv.id)
-            total_amount += cnv.convidados.length
-        }
+    async mounted() {
+        const convidadosPr = await getAllPr();
+        this.convidadosPr = convidadosPr;
 
-        
+        await Promise.all(this.convidadosPr.map(async (pr) => {
+            this.total_amount++;
+            pr.convidados = await getAllCnv(pr.id);
+            this.total_amount += pr.convidados.length;
+        }));
 
-        
-        return {
-            convidadosPr,
-            total_amount,
-        }
-    },
-    mounted() {
+        this.loading = false;
     },
     methods: {
         async deleteCnv(id, index) {
@@ -63,6 +63,7 @@ export default {
             this.total_amount--;
         },
         async exportToExcel() {
+            if (this.loading) { return; }
             const excel = new ExcelJS.Workbook();
             const worksheet = excel.addWorksheet('Presenças');
 
@@ -95,6 +96,31 @@ export default {
 }
 </script>
 <style scoped="">
+.loading{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 80px;
+    justify-content: center;
+    width: 100%;
+    font-size: 18px;
+}
+.spinner{
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ddd;
+    border-top-color: #a97f53;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+.export-btn[disabled]{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 .rmv{
     cursor: pointer;
     position: absolute;
